@@ -1,0 +1,12 @@
+
+{
+  "name": "thesoundmind",
+  "engines": {
+    "node": "6.11.2"
+  },
+  "scripts": {
+    "build": "cd frontend && yarn install && yarn build && cd ..",
+    "deploy": "cp -a frontend/build/. public/",
+    "postinstall": "yarn build && yarn run deploy && echo 'Frontend built!'"
+  }
+}
