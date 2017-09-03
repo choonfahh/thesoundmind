@@ -1,0 +1,211 @@
+location,activity,mood
+Home,Creative & Fun,Relaxed
+Transport,Travel & Drive,Happy
+Workplace,Productivity,Sad
+Street,Exercise,Energetic
+Home,Creative & Fun,Stressed
+Transport,Travel & Drive,Relaxed
+Workplace,Productivity,Happy
+Street,Exercise,Deep in thought
+Home,Creative & Fun,Happy
+Transport,Travel & Drive,Sad
+Workplace,Productivity,Focused
+Street,Exercise,Stressed
+Home,Creative & Fun,Sad
+Transport,Travel & Drive,Focused
+Workplace,Productivity,Deep in thought
+Street,Exercise,Relaxed
+Home,Creative & Fun,Focused
+Transport,Travel & Drive,Deep in thought
+Workplace,Productivity,Energetic
+Street,Exercise,Happy
+Home,Creative & Fun,Deep in thought
+Transport,Travel & Drive,Energetic
+Workplace,Productivity,Stressed
+Street,Exercise,Sad
+Home,Creative & Fun,Energetic
+Transport,Travel & Drive,Stressed
+Workplace,Productivity,Relaxed
+Street,Exercise,Focused
+Transport,Productivity,Happy
+School,Browse & Chill,Focused
+Gym,Exercise,Deep in thought
+Cafe,Creative & Fun,Stressed
+Transport,Productivity,Sad
+School,Browse & Chill,Deep in thought
+Gym,Exercise,Energetic
+Cafe,Creative & Fun,Relaxed
+Transport,Productivity,Focused
+School,Browse & Chill,Energetic
+Gym,Exercise,Stressed
+Cafe,Creative & Fun,Happy
+Transport,Productivity,Deep in thought
+School,Browse & Chill,Stressed
+Gym,Exercise,Relaxed
+Cafe,Creative & Fun,Sad
+Transport,Productivity,Energetic
+School,Browse & Chill,Relaxed
+Gym,Exercise,Happy
+Cafe,Creative & Fun,Focused
+Transport,Productivity,Stressed
+School,Browse & Chill,Happy
+Gym,Exercise,Sad
+Cafe,Creative & Fun,Deep in thought
+Transport,Productivity,Relaxed
+School,Browse & Chill,Sad
+Gym,Exercise,Focused
+Cafe,Creative & Fun,Energetic
+Home,Productivity,Relaxed
+Workplace,Browse & Chill,Sad
+School,Exercise,Focused
+Gym,Shower,Deep in thought
+Street,Creative & Fun,Energetic
+Home,Productivity,Happy
+Workplace,Browse & Chill,Focused
+School,Exercise,Deep in thought
+Gym,Shower,Energetic
+Street,Creative & Fun,Stressed
+Home,Productivity,Sad
+Workplace,Browse & Chill,Deep in thought
+School,Exercise,Energetic
+Gym,Shower,Stressed
+Street,Creative & Fun,Relaxed
+Home,Productivity,Focused
+Workplace,Browse & Chill,Energetic
+School,Exercise,Stressed
+Gym,Shower,Relaxed
+Street,Creative & Fun,Happy
+Home,Productivity,Deep in thought
+Workplace,Browse & Chill,Stressed
+School,Exercise,Relaxed
+Gym,Shower,Happy
+Street,Creative & Fun,Sad
+Home,Productivity,Energetic
+Workplace,Browse & Chill,Relaxed
+School,Exercise,Happy
+Gym,Shower,Sad
+Street,Creative & Fun,Focused
+Home,Productivity,Stressed
+Workplace,Browse & Chill,Happy
+School,Exercise,Sad
+Gym,Shower,Focused
+Street,Creative & Fun,Deep in thought
+Home,Chores,Relaxed
+Transport,Browse & Chill,Happy
+School,Shower,Focused
+Street,Travel & Drive,Energetic
+Cafe,Productivity,Stressed
+Home,Chores,Happy
+Transport,Browse & Chill,Sad
+School,Shower,Deep in thought
+Street,Travel & Drive,Stressed
+Cafe,Productivity,Relaxed
+Home,Chores,Sad
+Transport,Browse & Chill,Focused
+School,Shower,Energetic
+Street,Travel & Drive,Relaxed
+Cafe,Productivity,Happy
+Home,Chores,Focused
+Transport,Browse & Chill,Deep in thought
+School,Shower,Stressed
+Street,Travel & Drive,Happy
+Cafe,Productivity,Sad
+Home,Chores,Deep in thought
+Transport,Browse & Chill,Energetic
+School,Shower,Relaxed
+Street,Travel & Drive,Sad
+Cafe,Productivity,Focused
+Home,Chores,Energetic
+Transport,Browse & Chill,Stressed
+School,Shower,Happy
+Street,Travel & Drive,Focused
+Cafe,Productivity,Deep in thought
+Home,Chores,Stressed
+Transport,Browse & Chill,Relaxed
+School,Shower,Sad
+Street,Travel & Drive,Deep in thought
+Cafe,Productivity,Energetic
+Home,Browse & Chill,Relaxed
+School,Creative & Fun,Focused
+Street,Productivity,Energetic
+Cafe,Chores,Stressed
+Home,Browse & Chill,Happy
+School,Creative & Fun,Deep in thought
+Street,Productivity,Stressed
+Cafe,Chores,Relaxed
+Home,Browse & Chill,Sad
+School,Creative & Fun,Energetic
+Street,Productivity,Relaxed
+Cafe,Chores,Happy
+Home,Browse & Chill,Focused
+School,Creative & Fun,Stressed
+Street,Productivity,Happy
+Cafe,Chores,Sad
+Home,Browse & Chill,Deep in thought
+School,Creative & Fun,Relaxed
+Street,Productivity,Sad
+Cafe,Chores,Focused
+Home,Browse & Chill,Energetic
+School,Creative & Fun,Happy
+Street,Productivity,Focused
+Cafe,Chores,Deep in thought
+Home,Browse & Chill,Stressed
+School,Creative & Fun,Sad
+Street,Productivity,Deep in thought
+Cafe,Chores,Energetic
+Home,Exercise,Relaxed
+Workplace,Creative & Fun,Sad
+School,Travel & Drive,Focused
+Cafe,Browse & Chill,Stressed
+Home,Exercise,Happy
+Workplace,Creative & Fun,Focused
+School,Travel & Drive,Deep in thought
+Cafe,Browse & Chill,Relaxed
+Home,Exercise,Sad
+Workplace,Creative & Fun,Deep in thought
+School,Travel & Drive,Energetic
+Cafe,Browse & Chill,Happy
+Home,Exercise,Focused
+Workplace,Creative & Fun,Energetic
+School,Travel & Drive,Stressed
+Cafe,Browse & Chill,Sad
+Home,Exercise,Deep in thought
+Workplace,Creative & Fun,Stressed
+School,Travel & Drive,Relaxed
+Cafe,Browse & Chill,Focused
+Home,Exercise,Energetic
+Workplace,Creative & Fun,Relaxed
+School,Travel & Drive,Happy
+Cafe,Browse & Chill,Deep in thought
+Home,Exercise,Stressed
+Workplace,Creative & Fun,Happy
+School,Travel & Drive,Sad
+Cafe,Browse & Chill,Energetic
+Home,Shower,Relaxed
+Transport,Creative & Fun,Happy
+School,Productivity,Focused
+Street,Browse & Chill,Energetic
+Home,Shower,Happy
+Transport,Creative & Fun,Sad
+School,Productivity,Deep in thought
+Street,Browse & Chill,Stressed
+Home,Shower,Sad
+Transport,Creative & Fun,Focused
+School,Productivity,Energetic
+Street,Browse & Chill,Relaxed
+Home,Shower,Focused
+Transport,Creative & Fun,Deep in thought
+School,Productivity,Stressed
+Street,Browse & Chill,Happy
+Home,Shower,Deep in thought
+Transport,Creative & Fun,Energetic
+School,Productivity,Relaxed
+Street,Browse & Chill,Sad
+Home,Shower,Energetic
+Transport,Creative & Fun,Stressed
+School,Productivity,Happy
+Street,Browse & Chill,Focused
+Home,Shower,Stressed
+Transport,Creative & Fun,Relaxed
+School,Productivity,Sad
+Street,Browse & Chill,Deep in thought
