@@ -13,17 +13,17 @@ class Feedback extends React.Component {
         <Button.Group basic size='big' fluid
           className="feedback">
 
-          <FavoriteButton
+          <FavoriteButton fluid compact
             state={this.props.state}
             handleFavorite={this.props.handleFavorite}
           />
 
-          <LikeButton
+          <LikeButton fluid compact
             state={this.props.state}
             handleLike={this.props.handleLike}
           />
 
-          <PlayingButton
+          <PlayingButton fluid compact
             state={this.props.state}
             handlePlay={this.props.handlePlay}
           />
@@ -35,12 +35,12 @@ class Feedback extends React.Component {
         <Button.Group basic size='big' fluid
           className="feedback">
 
-          <FavoriteButton
+          <FavoriteButton fluid compact
             state={this.props.state}
             handleFavorite={this.props.handleFavorite}
           />
 
-          <LikeButton
+          <LikeButton fluid compact
             state={this.props.state}
             handleLike={this.props.handleLike}
           />
@@ -52,22 +52,22 @@ class Feedback extends React.Component {
         <Button.Group basic size='big' fluid
           className="feedback">
 
-          <FavoriteButton
+          <FavoriteButton fluid compact
             state={this.props.state}
             handleFavorite={this.props.handleFavorite}
           />
 
-          <LikeButton
+          <LikeButton fluid compact
             state={this.props.state}
             handleLike={this.props.handleLike}
           />
 
-          <PlayingButton
+          <PlayingButton fluid compact
             state={this.props.state}
             handlePlay={this.props.handlePlay}
           />
 
-          <SkipButton
+          <SkipButton fluid compact
             state={this.props.state}
             handleSkip={this.props.handleSkip}
           />

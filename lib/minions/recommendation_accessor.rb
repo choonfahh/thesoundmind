@@ -48,12 +48,4 @@ module RecommendationAccessor
     @recommender_and_like = number_of_recommender + like
     recommender_and_like = @recommender_and_like
   end
-
-  def moment_coefficient
-    @moment_coefficient = 0
-    @moment_coefficient += 1 if location == "Cafe" # change to param
-    @moment_coefficient += 1 if activity == "Chores" # change to param
-    @moment_coefficient += 1 if mood == "Stressed" # change to param
-    moment_coefficient = @moment_coefficient
-  end
 end

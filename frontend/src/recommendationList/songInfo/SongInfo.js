@@ -32,7 +32,7 @@ class SongInfo extends React.Component {
       <Card.Content
         className="song-info">
 
-        <Button basic animated="fade" floated="right" size="large" color="blue"
+        <Button basic animated="fade" floated="right" size="small" color="purple"
           onClick={this.props.handleUnlock}>
 
           <Button.Content visible>

@@ -1,0 +1,18 @@
+.page-body {
+  height: calc(100% - 50px);
+}
+
+#ask-body-alignment {
+  margin: auto;
+}
+
+#ask-form-alignment {
+  margin-top: -25%;
+}
+
+#input-form {
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 270px;
+}

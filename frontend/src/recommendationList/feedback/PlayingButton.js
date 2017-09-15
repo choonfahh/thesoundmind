@@ -5,7 +5,7 @@ import 'semantic-ui-css/semantic.min.css';
 class PlayingButton extends React.Component {
   render() {
     return (
-      <Button
+      <Button icon
         onClick={this.props.handlePlay}>
         <Icon name={this.props.state.isPlaying ? "pause" : "play"}
           color={this.props.state.isPlaying ? "grey" : "grey"}

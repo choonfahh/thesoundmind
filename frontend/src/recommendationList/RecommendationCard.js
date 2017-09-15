@@ -42,10 +42,8 @@ class RecommendationCard extends React.Component {
     if (this.state.seconds > 0) {
       this.setState(prevState => ({
         seconds: prevState.seconds - 1
-      }))
-    } else (
-      clearInterval(this.timerDisplay)
-    );
+      }));
+    }
   }
 
   handleFavorite() {
@@ -197,6 +195,10 @@ class RecommendationCard extends React.Component {
 
       this.props.callbackResetOverridePlay();
     }
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timerDisplay);
   }
 
   render() {

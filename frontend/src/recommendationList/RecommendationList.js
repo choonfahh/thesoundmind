@@ -1,7 +1,8 @@
 import React from 'react';
 import RecommendationCard from './RecommendationCard';
-import { Container } from 'semantic-ui-react';
+import { Grid } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
+import './recommendationList.css'
 
 class RecommendationList extends React.Component {
   constructor (props) {
@@ -61,6 +62,10 @@ class RecommendationList extends React.Component {
     });
   }
 
+  componentWillUnmount() {
+    this.props.callbackReset()
+  }
+  
   render() {
     let rows = [];
 
@@ -82,10 +87,11 @@ class RecommendationList extends React.Component {
       );
     }
     return (
-      <Container text
-        className="recommendation-list">
+      <Grid.Row centered className='page-body'>
+        <Grid.Column mobile={16} tablet={12} computer={9} largeScreen={7} widescreen={5}>
         {rows}
-      </Container>
+      </Grid.Column>
+    </Grid.Row>
     );
   }
 }

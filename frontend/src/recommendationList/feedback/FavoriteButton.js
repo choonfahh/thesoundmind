@@ -5,10 +5,10 @@ import 'semantic-ui-css/semantic.min.css';
 class FavoriteButton extends React.Component {
   render() {
     return (
-      <Button
+      <Button icon
         onClick={this.props.handleFavorite}>
-        <Icon name={this.props.state.isFavorite ? "checkmark" : "add"}
-          color={this.props.state.isFavorite ? "green" : "grey"}
+        <Icon name={this.props.state.isFavorite ? "heart" : "empty heart"}
+          color={this.props.state.isFavorite ? "red" : "grey"}
         />
       </Button>
     );

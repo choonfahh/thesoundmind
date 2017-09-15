@@ -5,7 +5,7 @@ import 'semantic-ui-css/semantic.min.css';
 class LikeButton extends React.Component {
   render() {
     return (
-      <Button
+      <Button icon
         onClick={this.props.handleLike}>
         <Icon name={this.props.state.isLiked ? "thumbs up" : "like outline"}
           color={this.props.state.isLiked ? "blue" : "grey"}
