@@ -55,6 +55,8 @@ class Feedback extends React.Component {
           <FavoriteButton fluid compact
             state={this.props.state}
             handleFavorite={this.props.handleFavorite}
+            fbUser={this.props.fbUser}
+            handleFbLogin={this.props.handleFbLogin}
           />
 
           <LikeButton fluid compact

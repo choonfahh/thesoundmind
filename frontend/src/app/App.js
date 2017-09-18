@@ -1,5 +1,8 @@
+/*global FB*/
+
 import React from 'react';
 import { Grid } from 'semantic-ui-react';
+import { BrowserRouter } from 'react-router-dom';
 import PageMenu from '../pageMenu/PageMenu';
 import MainBody from '../mainBody/MainBody';
 import 'semantic-ui-css/semantic.min.css';
@@ -13,13 +16,45 @@ class App extends React.Component{
       location: '',
       activity: '',
       mood: '',
-      queryResult: ''
+      queryResult: '',
+      fbUserId: '',
+      fbUserName: ''
     };
 
     this.handleQuery = this.handleQuery.bind(this);
     this.handleQueryChange = this.handleQueryChange.bind(this);
     this.handleReset = this.handleReset.bind(this);
+    this.processLoginQuery = this.processLoginQuery.bind(this);
     this.processQuery = this.processQuery.bind(this);
+    this.handleFbLogin = this.handleFbLogin.bind(this);
+    this.handleFbLogout = this.handleFbLogout.bind(this);
+
+  }
+
+  componentDidMount() {
+    FB.getLoginStatus(function(fbResponse) {
+      console.log(fbResponse)
+
+      if (fbResponse.status === 'connected') {
+        FB.api('/me', {fields: 'name, picture'}, function(userInfo) {
+          console.log(userInfo);
+
+          this.setState({
+            fbUserId: fbResponse.authResponse.userID,
+            fbUserName: userInfo.name
+          });
+
+        }.bind(this));
+
+      } else if (fbResponse.status === 'not_authorized') {
+        console.log('not authorized');
+        // the user is logged in to Facebook,
+        // but has not authenticated your app
+      } else {
+        console.log('not logged in');
+        // the user isn't logged in to Facebook.
+      }
+    }.bind(this));
   }
 
   handleQueryChange(e, selected) {
@@ -46,6 +81,45 @@ class App extends React.Component{
       mood: '',
       queryResult: ''
     });
+  }
+
+  handleFbLogin() {
+    FB.login(function(fbResponse) {
+      if (fbResponse.authResponse) {
+        console.log(fbResponse);
+
+        FB.api('/me', {fields: 'name, email, verified'}, function(userInfo) {
+          console.log(userInfo);
+
+          this.setState({
+            fbUserId: fbResponse.authResponse.userID,
+            fbUserName: userInfo.name
+          });
+
+        }.bind(this));
+
+      } else {
+        console.log('User cancelled login or did not fully authorize.');
+      }
+    }.bind(this), {scope: 'public_profile,email'});
+  }
+
+  handleFbLogout() {
+    FB.logout(function(response) {
+
+      this.setState({
+        fbUserId: '',
+        fbUserName: ''
+      });
+
+      console.log('User logged out');
+
+    }.bind(this));
+  }
+
+  processLoginQuery() {
+    this.handleFbLogin();
+    this.processQuery();
   }
 
   processQuery() {
@@ -88,22 +162,30 @@ class App extends React.Component{
 
   render() {
     return (
-      <Grid columns={1} padded centered relaxed
-        className='full-height'>
+      <BrowserRouter>
+        <Grid columns={1} padded centered relaxed
+          className='full-height'>
 
-        <PageMenu />
+          <PageMenu
+            fbUser={this.state.fbUserId}
+            handleFbLogout={this.handleFbLogout}
+          />
 
-        <MainBody
-          location={this.state.location}
-          activity={this.state.activity}
-          mood={this.state.mood}
-          processQuery={this.processQuery}
-          handleQueryChange={this.handleQueryChange}
-          songs={this.state.queryResult}
-          handleReset={this.handleReset}
-        />
+          <MainBody
+            location={this.state.location}
+            activity={this.state.activity}
+            mood={this.state.mood}
+            fbUser={this.state.fbUserId}
+            processQuery={this.processQuery}
+            handleQueryChange={this.handleQueryChange}
+            songs={this.state.queryResult}
+            handleReset={this.handleReset}
+            processLoginQuery={this.processLoginQuery}
+            handleFbLogin={this.handleFbLogin}
+          />
 
-      </Grid>
+        </Grid>
+      </BrowserRouter>
     );
   }
 }

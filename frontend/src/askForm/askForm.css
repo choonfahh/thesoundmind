@@ -16,3 +16,7 @@
   margin-right: auto;
   max-width: 270px;
 }
+
+#minimized {
+  display: none;
+}

@@ -65,7 +65,7 @@ class RecommendationList extends React.Component {
   componentWillUnmount() {
     this.props.callbackReset()
   }
-  
+
   render() {
     let rows = [];
 
@@ -83,6 +83,8 @@ class RecommendationList extends React.Component {
           callbackOverridePlay={this.handleOverridePlay}
           callbackResetCount={this.handleResetCount}
           callbackResetOverridePlay={this.handleResetOverridePlay}
+          fbUser={this.props.fbUser}
+          handleFbLogin={this.props.handleFbLogin}
         />
       );
     }

@@ -249,6 +249,8 @@ class RecommendationCard extends React.Component {
             handleLike={this.handleLike}
             handlePlay={this.handlePlay}
             handleSkip={this.handleSkip}
+            fbUser={this.props.fbUser}
+            handleFbLogin={this.props.handleFbLogin}
           />
 
         </Card>

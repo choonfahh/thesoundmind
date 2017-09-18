@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Form, Grid, Header, Icon, Segment } from 'semantic-ui-react';
+import { Button, Divider, Form, Grid, Header, Icon, Segment } from 'semantic-ui-react';
 import { location, activity, mood } from './AskOptions';
 import 'semantic-ui-css/semantic.min.css';
 import './askForm.css';
@@ -53,54 +53,121 @@ class AskForm extends React.Component {
           </Grid.Row>
         );
       } else {
-        return (
-          <Grid.Row centered className='page-body'>
-            <Grid.Column mobile={16} tablet={11} computer={9} largeScreen={7} widescreen={5} id='ask-body-alignment'>
 
-              <Segment basic textAlign="center" id='ask-form-alignment'>
+        if (this.props.fbUser !== "") {
+          return(
+            <Grid.Row centered className='page-body'>
+              <Grid.Column mobile={16} tablet={11} computer={9} largeScreen={7} widescreen={5} id='ask-body-alignment'>
 
-                <Header size="large"
-                  content="What's your moment?"
-                  subheader="In return, we'll play a music playlist tailored just for you right now." />
-                  <Form id='input-form'>
+                <Segment basic textAlign="center" id='ask-form-alignment'>
 
-                    <Form.Select fluid required
-                      name="location"
-                      options={location}
-                      placeholder='Location'
-                      onChange={this.props.handleQueryChange}
-                    />
-                    <Form.Select fluid required
-                      name="activity"
-                      options={activity}
-                      placeholder='Type of Activity'
-                      onChange={this.props.handleQueryChange}
-                    />
-                    <Form.Select fluid required
-                      name="mood"
-                      options={mood}
-                      placeholder='Mood'
-                      onChange={this.props.handleQueryChange}
-                    />
+                  <Header size="large"
+                    content="What's your moment?"
+                    subheader="In return, we'll play a music playlist tailored just for you right now." />
+                    <Form id='input-form'>
 
-                    <Link to='/omakase'>
-                    <Form.Button size="large" color="purple" animated onClick={this.props.processQuery}>
-                      <Button.Content visible>
-                        Give me now!
-                      </Button.Content>
+                      <Form.Select fluid required
+                        name="location"
+                        options={location}
+                        placeholder='Location'
+                        onChange={this.props.handleQueryChange}
+                      />
+                      <Form.Select fluid required
+                        name="activity"
+                        options={activity}
+                        placeholder='Type of Activity'
+                        onChange={this.props.handleQueryChange}
+                      />
+                      <Form.Select fluid required
+                        name="mood"
+                        options={mood}
+                        placeholder='Mood'
+                        onChange={this.props.handleQueryChange}
+                      />
 
-                      <Button.Content hidden>
-                        <Icon name='play' />
-                      </Button.Content>
-                    </Form.Button>
-                  </Link>
+                      <Link to='/omakase'>
+                      <Form.Button size="medium" color="purple" animated onClick={this.props.processQuery}>
+                        <Button.Content visible>
+                          Get my playlist now!
+                        </Button.Content>
 
-                </Form>
-              </Segment>
+                        <Button.Content hidden>
+                          <Icon name='play' />
+                        </Button.Content>
+                      </Form.Button>
+                    </Link>
 
-            </Grid.Column>
-          </Grid.Row>
-        )
+                  </Form>
+                </Segment>
+
+              </Grid.Column>
+            </Grid.Row>
+          )
+        } else {
+          return (
+            <Grid.Row centered className='page-body'>
+              <Grid.Column mobile={16} tablet={11} computer={9} largeScreen={7} widescreen={5} id='ask-body-alignment'>
+
+                <Segment basic textAlign="center" id='ask-form-alignment'>
+
+                  <Header size="large"
+                    content="What's your moment?"
+                    subheader="In return, we'll play a music playlist tailored just for you right now." />
+                    <Form id='input-form'>
+
+                      <Form.Select fluid required
+                        name="location"
+                        options={location}
+                        placeholder='Location'
+                        onChange={this.props.handleQueryChange}
+                      />
+                      <Form.Select fluid required
+                        name="activity"
+                        options={activity}
+                        placeholder='Type of Activity'
+                        onChange={this.props.handleQueryChange}
+                      />
+                      <Form.Select fluid required
+                        name="mood"
+                        options={mood}
+                        placeholder='Mood'
+                        onChange={this.props.handleQueryChange}
+                      />
+
+                      <Link to='/omakase'>
+                      <Form.Button size="medium" color='facebook' animated onClick={this.props.processLoginQuery}>
+                        <Button.Content visible>
+                        <Icon name='facebook' />
+                        Continue with Facebook
+                        </Button.Content>
+
+                        <Button.Content hidden>
+                          <Icon name='play' />
+                        </Button.Content>
+                      </Form.Button>
+                    </Link>
+
+                      <Divider horizontal>Or</Divider>
+
+                      <Link to='/omakase'>
+                      <Form.Button size="small" color="purple" animated onClick={this.props.processQuery}>
+                        <Button.Content visible>
+                          Try out first
+                        </Button.Content>
+
+                        <Button.Content hidden>
+                          <Icon name='play' />
+                        </Button.Content>
+                      </Form.Button>
+                    </Link>
+
+                  </Form>
+                </Segment>
+
+              </Grid.Column>
+            </Grid.Row>
+          )
+        }
       }
     }
   }
