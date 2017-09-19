@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  moment: one
-  song: one
+  recommendation: one
+  artist_comment: MyString
 
 two:
-  moment: two
-  song: two
+  recommendation: two
+  artist_comment: MyString

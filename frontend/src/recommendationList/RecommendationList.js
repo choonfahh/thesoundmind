@@ -1,5 +1,5 @@
 import React from 'react';
-import RecommendationCard from './RecommendationCard';
+import SongCard from '../songCard/SongCard';
 import { Grid } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import './recommendationList.css'
@@ -73,7 +73,7 @@ class RecommendationList extends React.Component {
       if (songCount === this.props.songs.length) { break; }
 
       rows.push(
-        <RecommendationCard
+        <SongCard
           song={this.props.songs[songCount]}
           key={this.props.songs[songCount]["id"]}
           queryLength={this.props.songs.length}

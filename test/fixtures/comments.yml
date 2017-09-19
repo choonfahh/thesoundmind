@@ -2,22 +2,10 @@
 
 one:
   recommendation: one
-  user: MyString
+  user: one
   content: MyString
-  impression: 1
-  skip: 1
-  info_seen: 1
-  unlock: 1
-  like: 1
-  favorite: 1
 
 two:
   recommendation: two
-  user: MyString
+  user: two
   content: MyString
-  impression: 1
-  skip: 1
-  info_seen: 1
-  unlock: 1
-  like: 1
-  favorite: 1

@@ -8,7 +8,7 @@ import Feedback from './feedback/Feedback';
 import { Card, Transition } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 
-class RecommendationCard extends React.Component {
+class SongCard extends React.Component {
   constructor (props) {
     super(props)
 
@@ -259,4 +259,4 @@ class RecommendationCard extends React.Component {
   }
 }
 
-export default RecommendationCard;
+export default SongCard;

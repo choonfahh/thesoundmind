@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170903033146) do
+ActiveRecord::Schema.define(version: 20170919024323) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "artist_comments", force: :cascade do |t|
+    t.bigint "recommendation_id"
+    t.string "artist_comment"
+    t.index ["recommendation_id"], name: "index_artist_comments_on_recommendation_id"
+  end
 
   create_table "artists", force: :cascade do |t|
     t.string "name"
@@ -22,8 +28,18 @@ ActiveRecord::Schema.define(version: 20170903033146) do
 
   create_table "comments", force: :cascade do |t|
     t.bigint "recommendation_id"
-    t.string "user"
+    t.bigint "user_id"
     t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recommendation_id"], name: "index_comments_on_recommendation_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "interactions", force: :cascade do |t|
+    t.bigint "recommendation_id"
+    t.bigint "user_id"
+    t.integer "contribute"
     t.integer "impression"
     t.integer "skip"
     t.integer "info_seen"
@@ -32,7 +48,8 @@ ActiveRecord::Schema.define(version: 20170903033146) do
     t.integer "favorite"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["recommendation_id"], name: "index_comments_on_recommendation_id"
+    t.index ["recommendation_id"], name: "index_interactions_on_recommendation_id"
+    t.index ["user_id"], name: "index_interactions_on_user_id"
   end
 
   create_table "moments", force: :cascade do |t|
@@ -44,16 +61,6 @@ ActiveRecord::Schema.define(version: 20170903033146) do
   create_table "recommendations", force: :cascade do |t|
     t.bigint "moment_id"
     t.bigint "song_id"
-    t.string "artist_comment"
-    t.integer "number_of_recommender"
-    t.integer "impression"
-    t.integer "skip"
-    t.integer "info_seen"
-    t.integer "unlock"
-    t.integer "like"
-    t.integer "favorite"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.index ["moment_id"], name: "index_recommendations_on_moment_id"
     t.index ["song_id"], name: "index_recommendations_on_song_id"
   end
@@ -66,7 +73,20 @@ ActiveRecord::Schema.define(version: 20170903033146) do
     t.index ["artist_id"], name: "index_songs_on_artist_id"
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "fb_id"
+    t.string "name"
+    t.string "email"
+    t.integer "unlock_points"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "artist_comments", "recommendations"
   add_foreign_key "comments", "recommendations"
+  add_foreign_key "comments", "users"
+  add_foreign_key "interactions", "recommendations"
+  add_foreign_key "interactions", "users"
   add_foreign_key "recommendations", "moments"
   add_foreign_key "recommendations", "songs"
   add_foreign_key "songs", "artists"

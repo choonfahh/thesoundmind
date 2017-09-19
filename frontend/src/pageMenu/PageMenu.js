@@ -58,32 +58,34 @@ class PageMenu extends React.Component {
         </div>
       </Link>
 
+      <Link to='/favorites'>
       <div className='menu-button'>
         <Icon link size='large'
           name='heart outline'
         />
       </div>
+    </Link>
 
-      <Modal size="mini"
-        closeIcon
-        trigger={<div className='menu-button'><Icon link size='large' name='user outline' /></div>}>
+    <Modal size="mini"
+      closeIcon
+      trigger={<div className='menu-button'><Icon link size='large' name='user outline' /></div>}>
 
-        <Modal.Content content="Do you want to logout of your account?" />
+      <Modal.Content content="Do you want to logout of your account?" />
 
-        <Modal.Actions>
-          <Button size="small" color='facebook' onClick={this.props.handleFbLogout}>
-            <Button.Content>
-              <Icon name='facebook' />
-              Logout
-            </Button.Content>
-          </Button>
-        </Modal.Actions>
+      <Modal.Actions>
+        <Button size="small" color='facebook' onClick={this.props.handleFbLogout}>
+          <Button.Content>
+            <Icon name='facebook' />
+            Logout
+          </Button.Content>
+        </Button>
+      </Modal.Actions>
 
-      </Modal>
+    </Modal>
 
-    </div>
+  </div>
 
-  </Grid.Column>
+</Grid.Column>
 </Grid.Row>
 )
 }

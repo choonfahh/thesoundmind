@@ -1,5 +1,16 @@
 require 'csv'
 
+user_csv = File.read(Rails.root.join('lib', 'seeds', 'users.csv'))
+user_seed = CSV.parse(user_csv, :headers => true, :encoding => 'ISO-8859-1')
+user_seed.each do |row|
+  t = User.new
+  t.fb_id = row['fb_id']
+  t.name = row['name']
+  t.email = row['email']
+  t.unlock_points = row['unlock_points']
+  t.save
+end
+
 artist_csv = File.read(Rails.root.join('lib', 'seeds', 'artists.csv'))
 artist_seed = CSV.parse(artist_csv, :headers => true, :encoding => 'ISO-8859-1')
 artist_seed.each do |row|
@@ -36,8 +47,16 @@ recommendation_seed.each do |row|
   t = Recommendation.new
   t.moment_id = row['moment_id']
   t.song_id = row['song_id']
-  t.artist_comment = row['artist_comment']
-  t.number_of_recommender = row['number_of_recommender']
+  t.save
+end
+
+interaction_csv = File.read(Rails.root.join('lib', 'seeds', 'interactions.csv'))
+interaction_seed = CSV.parse(interaction_csv, :headers => true, :encoding => 'ISO-8859-1')
+interaction_seed.each do |row|
+  t = Interaction.new
+  t.recommendation_id = row['recommendation_id']
+  t.user_id = row['user_id']
+  t.contribute = row['contribute']
   t.impression = row['impression']
   t.skip = row['skip']
   t.info_seen = row['info_seen']
@@ -52,13 +71,16 @@ comment_seed = CSV.parse(comment_csv, :headers => true, :encoding => 'ISO-8859-1
 comment_seed.each do |row|
   t = Comment.new
   t.recommendation_id = row['recommendation_id']
-  t.user = row['user']
+  t.user_id = row['user_id']
   t.content = row['content']
-  t.impression = row['impression']
-  t.skip = row['skip']
-  t.info_seen = row['info_seen']
-  t.unlock = row['unlock']
-  t.like = row['like']
-  t.favorite = row['favorite']
+  t.save
+end
+
+artist_comment_csv = File.read(Rails.root.join('lib', 'seeds', 'artist_comments.csv'))
+artist_comment_seed = CSV.parse(artist_comment_csv, :headers => true, :encoding => 'ISO-8859-1')
+artist_comment_seed.each do |row|
+  t = ArtistComment.new
+  t.recommendation_id = row['recommendation_id']
+  t.artist_comment = row['artist_comment']
   t.save
 end

@@ -1,11 +1,11 @@
 const location = [
-  { key: 'Cafe', text: 'Cafe', value: 'Cafe' },
-  { key: 'Gym', text: 'Gym', value: 'Gym' },
-  { key: 'Home', text: 'Home', value: 'Home' },
-  { key: 'School', text: 'School', value: 'School' },
-  { key: 'Street', text: 'Street', value: 'Street' },
-  { key: 'Transport', text: 'Transport', value: 'Transport' },
-  { key: 'Workplace', text: 'Workplace', value: 'Workplace' }
+  { text: 'Cafe', value: 'Cafe' },
+  { text: 'Gym', value: 'Gym' },
+  { text: 'Home', value: 'Home' },
+  { text: 'School', value: 'School' },
+  { text: 'Street', value: 'Street' },
+  { text: 'Transport', value: 'Transport' },
+  { text: 'Workplace', value: 'Workplace' }
 ]
 
 const activity = [
