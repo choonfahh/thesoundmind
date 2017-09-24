@@ -3,8 +3,7 @@
 one:
   moment: one
   song: one
-  artist_comment: MyString
-  number_of_recommender: 1
+  contribute: 1
   impression: 1
   skip: 1
   info_seen: 1
@@ -15,8 +14,7 @@ one:
 two:
   moment: two
   song: two
-  artist_comment: MyString
-  number_of_recommender: 1
+  contribute: 1
   impression: 1
   skip: 1
   info_seen: 1

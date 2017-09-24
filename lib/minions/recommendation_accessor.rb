@@ -1,8 +1,8 @@
 module RecommendationAccessor
   attr_accessor :location, :activity, :mood,
                 :song_title, :background_story, :playback_url,
-                :artist_name, :profile_url,
-                :recommender_and_like, :moment_coefficient
+                :artist_name, :profile_url, :positive_feedback,
+                :artist_content
 
   def location
     @location = Recommendation.find(id).moment.location
@@ -44,16 +44,13 @@ module RecommendationAccessor
     profile_url = @profile_url
   end
 
-  def recommender_and_like
-    @recommender_and_like = number_of_recommender + like
-    recommender_and_like = @recommender_and_like
+  def positive_feedback
+    @positive_feedback = contribute + like + favorite
+    positive_feedback = @positive_feedback
   end
 
-  def moment_coefficient
-    @moment_coefficient = 0
-    @moment_coefficient += 1 if location == "Cafe" # change to param
-    @moment_coefficient += 1 if activity == "Chores" # change to param
-    @moment_coefficient += 1 if mood == "Stressed" # change to param
-    moment_coefficient = @moment_coefficient
+  def artist_content
+    @artist_content = Recommendation.find(id).artist_comment.artist_content
+    artist_content = @artist_content
   end
 end

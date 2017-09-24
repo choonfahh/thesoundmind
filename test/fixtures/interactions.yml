@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  recommendation: one
+  user: one
+  contribute: 1
+  impression: 1
+  skip: 1
+  info_seen: 1
+  unlock: 1
+  like: 1
+  favorite: 1
+
+two:
+  recommendation: two
+  user: two
+  contribute: 1
+  impression: 1
+  skip: 1
+  info_seen: 1
+  unlock: 1
+  like: 1
+  favorite: 1

@@ -1,0 +1,20 @@
+.menu-header {
+  height: 50px;
+}
+
+.menu-left {
+  margin-top: 0.125rem;
+  float: left;
+  display: inline-block;
+}
+
+.menu-right {
+  float: right;
+  display: inline-block;
+}
+
+.menu-button {
+  margin-left: 0.9rem;
+  display: inline-block;
+  color: white;
+}

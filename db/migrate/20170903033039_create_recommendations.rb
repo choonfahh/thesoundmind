@@ -3,8 +3,7 @@ class CreateRecommendations < ActiveRecord::Migration[5.1]
     create_table :recommendations do |t|
       t.references :moment, foreign_key: true
       t.references :song, foreign_key: true
-      t.string :artist_comment
-      t.integer :number_of_recommender
+      t.integer :contribute
       t.integer :impression
       t.integer :skip
       t.integer :info_seen
