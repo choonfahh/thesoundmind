@@ -18,7 +18,8 @@ class App extends React.Component{
       mood: '',
       queryResult: '',
       fbUserId: '',
-      fbUserName: ''
+      fbUserName: '',
+      fbUserEmail: ''
     };
 
     this.handleQuery = this.handleQuery.bind(this);
@@ -28,6 +29,7 @@ class App extends React.Component{
     this.processQuery = this.processQuery.bind(this);
     this.handleFbLogin = this.handleFbLogin.bind(this);
     this.handleFbLogout = this.handleFbLogout.bind(this);
+    this.handleUser = this.handleUser.bind(this);
 
   }
 
@@ -74,6 +76,35 @@ class App extends React.Component{
     })
   }
 
+  handleUser(endpoint) {
+    //return new Promise((resolve, reject) => {
+      window.fetch(endpoint, {
+        method: "POST",
+        body: JSON.stringify(
+          {
+            "data":
+            {
+              "type"  : "users",
+              "attributes": {
+                "fb-id" : this.state.fbUserId,
+                "name"  : this.state.fbUserName,
+                "email" : this.state.fbUserEmail
+              }
+            }
+          }
+        ),
+        headers: {
+          "Content-Type": "application/vnd.api+json"
+        },
+        credentials: "same-origin"
+      })
+      // how do I resolve a 204 response?
+      //.then(response => response.json())
+      //.then(json => resolve(json))
+      //.catch(error => reject(error))
+    //})
+  }
+
   handleReset() {
     this.setState({
       location: '',
@@ -88,13 +119,16 @@ class App extends React.Component{
       if (fbResponse.authResponse) {
         console.log(fbResponse);
 
-        FB.api('/me', {fields: 'name, email, verified'}, function(userInfo) {
+        FB.api('/me', {fields: 'name, email'}, function(userInfo) {
           console.log(userInfo);
 
           this.setState({
             fbUserId: fbResponse.authResponse.userID,
-            fbUserName: userInfo.name
+            fbUserName: userInfo.name,
+            fbUserEmail: userInfo.email
           });
+
+          this.handleUser('api/users');
 
         }.bind(this));
 
@@ -102,6 +136,7 @@ class App extends React.Component{
         console.log('User cancelled login or did not fully authorize.');
       }
     }.bind(this), {scope: 'public_profile,email'});
+
   }
 
   handleFbLogout() {
@@ -109,7 +144,8 @@ class App extends React.Component{
 
       this.setState({
         fbUserId: '',
-        fbUserName: ''
+        fbUserName: '',
+        fbUserEmail: ''
       });
 
       console.log('User logged out');

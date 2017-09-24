@@ -13,7 +13,7 @@ class Meaning extends React.Component {
         className={this.props.state.cardSize + " meaning"}>
 
         <ArtistShoutout
-          shoutout={this.props.attributes["artist-comment"]}
+          shoutout={this.props.attributes["artist-content"]}
         />
 
         <UserShoutoutList

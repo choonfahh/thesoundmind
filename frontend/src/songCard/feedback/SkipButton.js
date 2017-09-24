@@ -4,13 +4,22 @@ import 'semantic-ui-css/semantic.min.css';
 
 class SkipButton extends React.Component {
   render() {
-    return (
-      <Button icon
-        onClick={this.props.handleSkip}>
-        <Icon name='step forward'
-        />
-      </Button>
-    );
+    if (this.props.state.isSkipped === true) {
+      return (
+        <Button icon>
+          <Icon name='step forward'
+          />
+        </Button>
+      );
+    } else {
+      return (
+        <Button icon
+          onClick={this.props.handleSkip}>
+          <Icon name='step forward'
+          />
+        </Button>
+      );
+    }
   }
 }
 

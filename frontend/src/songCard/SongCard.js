@@ -36,6 +36,7 @@ class SongCard extends React.Component {
     this.parseSeek = this.parseSeek.bind(this);
     this.handleToggle = this.handleToggle.bind(this);
     this.handleUnlock = this.handleUnlock.bind(this);
+    this.handleInteraction = this.handleInteraction.bind(this);
   }
 
   countDown() {
@@ -125,7 +126,7 @@ class SongCard extends React.Component {
   handleSkip() {
     this.setState(prevState => ({
       isPlaying: false,
-      isSkipped: !prevState.isSkipped
+      isSkipped: true
     }));
 
     this.props.callbackList();
@@ -176,6 +177,41 @@ class SongCard extends React.Component {
     this.props.callbackCount(playing);
   }
 
+  handleInteraction(endpoint) {
+    //return new Promise((resolve, reject) => {
+      window.fetch(endpoint, {
+        method: "POST",
+        body: JSON.stringify(
+          {
+            "data":
+            {
+              "type"  : "interactions",
+              "attributes": {
+                "recommendation-id": this.props.recommendationId,
+                "user-id": this.props.fbUser,
+                "contribute": 0,
+                "impression": 1,
+                "skip": this.state.isSkipped ? 1 : 0,
+                "info-seen": this.state.seconds === 0 ? 1 : 0,
+                "unlock": this.state.isUnlocked ? 1 : 0,
+                "like": this.state.isLiked ? 1 : 0,
+                "favorite": this.state.isFavorite ? 1 : 0
+              }
+            }
+          }
+        ),
+        headers: {
+          "Content-Type": "application/vnd.api+json"
+        },
+        credentials: "same-origin"
+      })
+      // how do I resolve a 204 response?
+      //.then(response => response.json())
+      //.then(json => resolve(json))
+      //.catch(error => reject(error))
+    //})
+  }
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.overallState.requireOverride === true) {
       this.setState({
@@ -198,6 +234,7 @@ class SongCard extends React.Component {
   }
 
   componentWillUnmount() {
+    this.handleInteraction('api/interactions');
     clearInterval(this.timerDisplay);
   }
 

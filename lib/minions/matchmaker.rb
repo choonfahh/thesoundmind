@@ -36,29 +36,26 @@ module Matchmaker
   end
 
   # in order of importance - moment:desc, impression:asc, info_seen:desc,
-  # recommender_and_like:desc, favorite:desc, unlock:desc, skip:asc
+  # contribute_and_like:desc, favorite:desc, unlock:desc, skip:asc
   def sorting_hat
     @list_three = @list_three.sort_by { |song|
                                         [song.impression,
                                          -song.info_seen,
-                                         -song.recommender_and_like,
-                                         -song.favorite,
+                                         -song.positive_feedback,
                                          -song.unlock,
                                          song.skip] }
 
     @list_two = @list_two.sort_by { |song|
                                     [song.impression,
                                      -song.info_seen,
-                                     -song.recommender_and_like,
-                                     -song.favorite,
+                                     -song.positive_feedback,
                                      -song.unlock,
                                      song.skip] }
 
     @list_one = @list_one.sort_by { |song|
                                     [song.impression,
                                      -song.info_seen,
-                                     -song.recommender_and_like,
-                                     -song.favorite,
+                                     -song.positive_feedback,
                                      -song.unlock,
                                      song.skip] }
   end

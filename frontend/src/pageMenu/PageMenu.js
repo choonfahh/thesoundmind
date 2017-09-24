@@ -61,7 +61,7 @@ class PageMenu extends React.Component {
       <Link to='/favorites'>
       <div className='menu-button'>
         <Icon link size='large'
-          name='heart outline'
+          name='bookmark outline'
         />
       </div>
     </Link>

@@ -2,7 +2,8 @@ module RecommendationAccessor
   attr_accessor :location, :activity, :mood,
                 :song_title, :background_story, :playback_url,
                 :artist_name, :profile_url, :positive_feedback,
-                :artist_content
+                :contribute, :impression, :skip, :info_seen, :unlock,
+                :like, :favorite
 
   def location
     @location = Recommendation.find(id).moment.location
@@ -49,8 +50,38 @@ module RecommendationAccessor
     positive_feedback = @positive_feedback
   end
 
-  def artist_content
-    @artist_content = Recommendation.find(id).artist_comment.artist_content
-    artist_content = @artist_content
+  def contribute
+    @contribute = Recommendation.find(id).interactions.sum(:contribute)
+    contribute = @contribute
+  end
+
+  def impression
+    @impression = Recommendation.find(id).interactions.sum(:impression)
+    impression = @impression
+  end
+
+  def skip
+    @skip = Recommendation.find(id).interactions.sum(:skip)
+    skip = @skip
+  end
+
+  def info_seen
+    @info_seen = Recommendation.find(id).interactions.sum(:info_seen)
+    info_seen = @info_seen
+  end
+
+  def unlock
+    @unlock = Recommendation.find(id).interactions.sum(:unlock)
+    unlock = @unlock
+  end
+
+  def like
+    @like = Recommendation.find(id).interactions.sum(:like)
+    like = @like
+  end
+
+  def favorite
+    @favorite = Recommendation.find(id).interactions.sum(:favorite)
+    favorite = @favorite
   end
 end

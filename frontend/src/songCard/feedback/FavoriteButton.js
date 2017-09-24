@@ -20,15 +20,15 @@ class FavoriteButton extends React.Component {
       return (
         <Button icon
           onClick={this.props.handleFavorite}>
-          <Icon name={this.props.state.isFavorite ? "heart" : "empty heart"}
-            color={this.props.state.isFavorite ? "red" : "grey"}
+          <Icon name={this.props.state.isFavorite ? "bookmark" : "bookmark outline"}
+            color={this.props.state.isFavorite ? "yellow" : "grey"}
           />
         </Button>
       );
     } else {
       return (
         <Modal size="mini"
-          trigger={<Button icon><Icon name={this.props.state.isFavorite ? "heart" : "empty heart"} color={this.props.state.isFavorite ? "red" : "grey"}/></Button>}
+          trigger={<Button icon><Icon name={this.props.state.isFavorite ? "bookmark" : "bookmark outline"} color={this.props.state.isFavorite ? "yellow" : "grey"}/></Button>}
           closeIcon>
 
           <Modal.Content content="Sign in now to save your favorite songs into your music library!" />

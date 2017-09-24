@@ -3,7 +3,21 @@
 one:
   moment: one
   song: one
+  contribute: 1
+  impression: 1
+  skip: 1
+  info_seen: 1
+  unlock: 1
+  like: 1
+  favorite: 1
 
 two:
   moment: two
   song: two
+  contribute: 1
+  impression: 1
+  skip: 1
+  info_seen: 1
+  unlock: 1
+  like: 1
+  favorite: 1

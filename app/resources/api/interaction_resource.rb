@@ -1,9 +1,6 @@
 module API
   class InteractionResource < JSONAPI::Resource
-    attributes :recommender_and_like,
-               :number_of_recommender, :impression, :skip, :info_seen, :unlock,
+    attributes :recommendation_id, :user_id, :contribute, :impression, :skip, :info_seen, :unlock,
                :like, :favorite
-
-    belongs_to :recommendation
   end
 end

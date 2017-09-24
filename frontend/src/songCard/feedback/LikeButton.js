@@ -7,8 +7,8 @@ class LikeButton extends React.Component {
     return (
       <Button icon
         onClick={this.props.handleLike}>
-        <Icon name={this.props.state.isLiked ? "thumbs up" : "like outline"}
-          color={this.props.state.isLiked ? "blue" : "grey"}
+        <Icon name={this.props.state.isLiked ? "heart" : "empty heart"}
+          color={this.props.state.isLiked ? "red" : "grey"}
         />
       </Button>
     );

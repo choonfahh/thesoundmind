@@ -2,6 +2,10 @@
   height: calc(100% - 50px);
 }
 
+.button-text {
+  color: white
+}
+
 #ask-body-alignment {
   margin: auto;
 }

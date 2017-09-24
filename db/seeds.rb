@@ -47,6 +47,13 @@ recommendation_seed.each do |row|
   t = Recommendation.new
   t.moment_id = row['moment_id']
   t.song_id = row['song_id']
+  t.contribute = row['contribute']
+  t.impression = row['impression']
+  t.skip = row['skip']
+  t.info_seen = row['info_seen']
+  t.unlock = row['unlock']
+  t.like = row['like']
+  t.favorite = row['favorite']
   t.save
 end
 
@@ -81,6 +88,6 @@ artist_comment_seed = CSV.parse(artist_comment_csv, :headers => true, :encoding 
 artist_comment_seed.each do |row|
   t = ArtistComment.new
   t.recommendation_id = row['recommendation_id']
-  t.artist_comment = row['artist_comment']
+  t.artist_content = row['artist_content']
   t.save
 end

@@ -8,10 +8,6 @@ module API
       recommendation_compile
       jsonapi_render json: @recommendations.take(10)
     end
-
-    #def update
-
-    #end
     
   end
 end

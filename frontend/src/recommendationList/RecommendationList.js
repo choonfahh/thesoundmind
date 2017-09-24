@@ -76,6 +76,7 @@ class RecommendationList extends React.Component {
         <SongCard
           song={this.props.songs[songCount]}
           key={this.props.songs[songCount]["id"]}
+          recommendationId={this.props.songs[songCount]["id"]}
           queryLength={this.props.songs.length}
           overallState={this.state}
           callbackList={this.handleSongsListened}

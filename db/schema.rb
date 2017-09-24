@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20170919024323) do
 
   create_table "artist_comments", force: :cascade do |t|
     t.bigint "recommendation_id"
-    t.string "artist_comment"
+    t.string "artist_content"
     t.index ["recommendation_id"], name: "index_artist_comments_on_recommendation_id"
   end
 
@@ -61,6 +61,15 @@ ActiveRecord::Schema.define(version: 20170919024323) do
   create_table "recommendations", force: :cascade do |t|
     t.bigint "moment_id"
     t.bigint "song_id"
+    t.integer "contribute"
+    t.integer "impression"
+    t.integer "skip"
+    t.integer "info_seen"
+    t.integer "unlock"
+    t.integer "like"
+    t.integer "favorite"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["moment_id"], name: "index_recommendations_on_moment_id"
     t.index ["song_id"], name: "index_recommendations_on_song_id"
   end

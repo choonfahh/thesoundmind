@@ -85,17 +85,20 @@ class AskForm extends React.Component {
                         onChange={this.props.handleQueryChange}
                       />
 
+
                       <Link to='/omakase'>
-                      <Form.Button size="medium" color="purple" animated onClick={this.props.processQuery}>
+                      <Button size="medium" color="purple" animated onClick={this.props.processQuery}>
+
                         <Button.Content visible>
-                          Get my playlist now!
+                          Click here to get your playlist now!
                         </Button.Content>
 
                         <Button.Content hidden>
                           <Icon name='play' />
                         </Button.Content>
-                      </Form.Button>
-                    </Link>
+
+                      </Button>
+                      </Link>
 
                   </Form>
                 </Segment>
@@ -135,7 +138,7 @@ class AskForm extends React.Component {
                       />
 
                       <Link to='/omakase'>
-                      <Form.Button size="medium" color='facebook' animated onClick={this.props.processLoginQuery}>
+                      <Button size="medium" color='facebook' animated onClick={this.props.processLoginQuery}>
                         <Button.Content visible>
                         <Icon name='facebook' />
                         Continue with Facebook
@@ -144,22 +147,26 @@ class AskForm extends React.Component {
                         <Button.Content hidden>
                           <Icon name='play' />
                         </Button.Content>
-                      </Form.Button>
-                    </Link>
+
+                      </Button>
+                      </Link>
+
 
                       <Divider horizontal>Or</Divider>
 
                       <Link to='/omakase'>
-                      <Form.Button size="small" color="purple" animated onClick={this.props.processQuery}>
+                      <Button size="small" color="purple" animated onClick={this.props.processQuery}>
                         <Button.Content visible>
-                          Try out first
+                          Click here to try out first
                         </Button.Content>
 
                         <Button.Content hidden>
                           <Icon name='play' />
                         </Button.Content>
-                      </Form.Button>
-                    </Link>
+
+                      </Button>
+                      </Link>
+
 
                   </Form>
                 </Segment>
