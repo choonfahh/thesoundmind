@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Divider, Form, Grid, Header, Icon, Segment } from 'semantic-ui-react';
+import { Button, Form, Grid, Header, Icon, Segment } from 'semantic-ui-react';
 import { location, activity, mood } from './AskOptions';
 import 'semantic-ui-css/semantic.min.css';
 import './askForm.css';
@@ -20,7 +20,8 @@ class AskForm extends React.Component {
 
               <Header size="large"
                 content="What's your moment?"
-                subheader="In return, we'll play a music playlist tailored just for you right now." />
+                subheader="In return, you'll receive a playlist of 10 songs right now." />
+
                 <Form id='input-form'>
 
                   <Form.Select fluid required
@@ -42,9 +43,12 @@ class AskForm extends React.Component {
                     onChange={this.props.handleQueryChange}
                   />
 
-                  <Form.Button disabled size="large" color="purple"
+                  <Form.Button disabled size="large" color="blue"
                     content="Fill up your moment!"
                   />
+
+                  <Header size="tiny" textAlign="justified"
+                    subheader="Note: You might encounter playing issues as the prototype uses Youtube & Soundcloud links. If so, skip the song. For the best experience, activate AdBlock in your browser." />
 
                 </Form>
               </Segment>
@@ -63,7 +67,8 @@ class AskForm extends React.Component {
 
                   <Header size="large"
                     content="What's your moment?"
-                    subheader="In return, we'll play a music playlist tailored just for you right now." />
+                    subheader="In return, you'll receive a playlist of 10 songs right now." />
+
                     <Form id='input-form'>
 
                       <Form.Select fluid required
@@ -87,10 +92,10 @@ class AskForm extends React.Component {
 
 
                       <Link to='/omakase'>
-                      <Button size="medium" color="purple" animated onClick={this.props.processQuery}>
+                      <Button size="large" color="blue" animated onClick={this.props.processQuery}>
 
                         <Button.Content visible>
-                          Click here to get your playlist now!
+                          Click here to get it now!
                         </Button.Content>
 
                         <Button.Content hidden>
@@ -99,6 +104,9 @@ class AskForm extends React.Component {
 
                       </Button>
                       </Link>
+
+                      <Header size="tiny" textAlign="justified"
+                        subheader="Note: You might encounter playing issues as the prototype uses Youtube & Soundcloud links. If so, skip the song. For the best experience, activate AdBlock in your browser." />
 
                   </Form>
                 </Segment>
@@ -115,7 +123,8 @@ class AskForm extends React.Component {
 
                   <Header size="large"
                     content="What's your moment?"
-                    subheader="In return, we'll play a music playlist tailored just for you right now." />
+                    subheader="In return, you'll receive a playlist of 10 songs right now." />
+
                     <Form id='input-form'>
 
                       <Form.Select fluid required
@@ -138,7 +147,7 @@ class AskForm extends React.Component {
                       />
 
                       <Link to='/omakase'>
-                      <Button size="medium" color='facebook' animated onClick={this.props.processLoginQuery}>
+                      <Button size="large" color='facebook' animated onClick={this.props.processLoginQuery}>
                         <Button.Content visible>
                         <Icon name='facebook' />
                         Continue with Facebook
@@ -151,22 +160,8 @@ class AskForm extends React.Component {
                       </Button>
                       </Link>
 
-
-                      <Divider horizontal>Or</Divider>
-
-                      <Link to='/omakase'>
-                      <Button size="small" color="purple" animated onClick={this.props.processQuery}>
-                        <Button.Content visible>
-                          Click here to try out first
-                        </Button.Content>
-
-                        <Button.Content hidden>
-                          <Icon name='play' />
-                        </Button.Content>
-
-                      </Button>
-                      </Link>
-
+                      <Header size="tiny" textAlign="justified"
+                        subheader="Note: You might encounter playing issues as the prototype uses Youtube & Soundcloud links. If so, skip the song. For the best experience, activate AdBlock in your browser." />
 
                   </Form>
                 </Segment>

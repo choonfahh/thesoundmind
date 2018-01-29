@@ -7,7 +7,6 @@ user_seed.each do |row|
   t.fb_id = row['fb_id']
   t.name = row['name']
   t.email = row['email']
-  t.unlock_points = row['unlock_points']
   t.save
 end
 
@@ -51,9 +50,7 @@ recommendation_seed.each do |row|
   t.impression = row['impression']
   t.skip = row['skip']
   t.info_seen = row['info_seen']
-  t.unlock = row['unlock']
   t.like = row['like']
-  t.favorite = row['favorite']
   t.save
 end
 
@@ -67,9 +64,7 @@ interaction_seed.each do |row|
   t.impression = row['impression']
   t.skip = row['skip']
   t.info_seen = row['info_seen']
-  t.unlock = row['unlock']
   t.like = row['like']
-  t.favorite = row['favorite']
   t.save
 end
 

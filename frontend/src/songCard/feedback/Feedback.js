@@ -1,5 +1,4 @@
 import React from 'react';
-import FavoriteButton from './FavoriteButton';
 import LikeButton from './LikeButton';
 import PlayingButton from './PlayingButton';
 import SkipButton from './SkipButton';
@@ -12,13 +11,6 @@ class Feedback extends React.Component {
       return (
         <Button.Group basic size='big' fluid
           className="feedback">
-
-          <FavoriteButton fluid compact
-            state={this.props.state}
-            handleFavorite={this.props.handleFavorite}
-            fbUser={this.props.fbUser}
-            handleFbLogin={this.props.handleFbLogin}
-          />
 
           <LikeButton fluid compact
             state={this.props.state}
@@ -37,13 +29,6 @@ class Feedback extends React.Component {
         <Button.Group basic size='big' fluid
           className="feedback">
 
-          <FavoriteButton fluid compact
-            state={this.props.state}
-            handleFavorite={this.props.handleFavorite}
-            fbUser={this.props.fbUser}
-            handleFbLogin={this.props.handleFbLogin}
-          />
-
           <LikeButton fluid compact
             state={this.props.state}
             handleLike={this.props.handleLike}
@@ -55,13 +40,6 @@ class Feedback extends React.Component {
       return (
         <Button.Group basic size='big' fluid
           className="feedback">
-
-          <FavoriteButton fluid compact
-            state={this.props.state}
-            handleFavorite={this.props.handleFavorite}
-            fbUser={this.props.fbUser}
-            handleFbLogin={this.props.handleFbLogin}
-          />
 
           <LikeButton fluid compact
             state={this.props.state}

@@ -2,7 +2,6 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import RecommendationList from '../recommendationList/RecommendationList';
 import AskForm from '../askForm/AskForm';
-import FavoriteList from '../favoriteList/FavoriteList';
 
 class MainBody extends React.Component{
   render() {
@@ -31,11 +30,6 @@ class MainBody extends React.Component{
           />
         }
       />
-      <Route path='/favorites' render={(props) =>
-        <FavoriteList
-        />
-      }
-    />
       </Switch>
     );
   }

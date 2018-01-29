@@ -3,8 +3,8 @@ module API
     attributes :location, :activity, :mood,
                :song_title, :background_story, :playback_url,
                :artist_name, :profile_url,
-               :contribute, :impression, :skip, :info_seen, :unlock,
-               :like, :favorite, :artist_content, :comments
+               :contribute, :impression, :skip, :info_seen,
+               :like, :artist_content, :comments
 
     def comments
       @model.comments.pluck_to_hash(:id, :content)

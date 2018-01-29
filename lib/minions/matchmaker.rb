@@ -42,21 +42,18 @@ module Matchmaker
                                         [song.impression,
                                          -song.info_seen,
                                          -song.positive_feedback,
-                                         -song.unlock,
                                          song.skip] }
 
     @list_two = @list_two.sort_by { |song|
                                     [song.impression,
                                      -song.info_seen,
                                      -song.positive_feedback,
-                                     -song.unlock,
                                      song.skip] }
 
     @list_one = @list_one.sort_by { |song|
                                     [song.impression,
                                      -song.info_seen,
                                      -song.positive_feedback,
-                                     -song.unlock,
                                      song.skip] }
   end
 

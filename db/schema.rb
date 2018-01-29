@@ -43,9 +43,7 @@ ActiveRecord::Schema.define(version: 20170919024323) do
     t.integer "impression"
     t.integer "skip"
     t.integer "info_seen"
-    t.integer "unlock"
     t.integer "like"
-    t.integer "favorite"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["recommendation_id"], name: "index_interactions_on_recommendation_id"
@@ -65,9 +63,7 @@ ActiveRecord::Schema.define(version: 20170919024323) do
     t.integer "impression"
     t.integer "skip"
     t.integer "info_seen"
-    t.integer "unlock"
     t.integer "like"
-    t.integer "favorite"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["moment_id"], name: "index_recommendations_on_moment_id"
@@ -86,7 +82,6 @@ ActiveRecord::Schema.define(version: 20170919024323) do
     t.string "fb_id"
     t.string "name"
     t.string "email"
-    t.integer "unlock_points"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

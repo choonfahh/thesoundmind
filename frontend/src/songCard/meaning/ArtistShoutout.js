@@ -18,7 +18,7 @@ class ArtistShoutout extends React.Component {
               <List.Icon size="small" name="quote left" />
 
               <List.Content>
-                <i>"{this.props.shoutout}"</i>
+                <i>Artists promote their own song here by telling the listener why they feel this song is suitable for their moment right now.</i>
               </List.Content>
 
             </List.Item>

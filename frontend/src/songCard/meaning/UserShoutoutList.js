@@ -22,7 +22,7 @@ class UserShoutoutList extends React.Component {
         <List.Item>
 
           <List.Header size="small">
-            Here's why other users thought this song is suitable for you:
+            Here's what other users thought about this song when they went through a similar moment like you:
           </List.Header>
 
           <List.List>

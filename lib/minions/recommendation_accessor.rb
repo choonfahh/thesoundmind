@@ -45,7 +45,7 @@ module RecommendationAccessor
   end
 
   def positive_feedback
-    @positive_feedback = contribute + like + favorite
+    @positive_feedback = contribute + like
     positive_feedback = @positive_feedback
   end
 

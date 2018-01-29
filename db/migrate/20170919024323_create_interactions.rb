@@ -7,9 +7,7 @@ class CreateInteractions < ActiveRecord::Migration[5.1]
       t.integer :impression
       t.integer :skip
       t.integer :info_seen
-      t.integer :unlock
       t.integer :like
-      t.integer :favorite
 
       t.timestamps
     end

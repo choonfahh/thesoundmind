@@ -14,20 +14,18 @@ class SongCard extends React.Component {
 
     this.state = {
       cardSize: "maximized",
-      isFavorite: false,
       isFinished: false,
       isLiked: false,
       isPlaying: false,
       isSeeking: false,
       isSkipped: false,
       isToggleOn: true,
-      isUnlocked: false,
-      seconds: 30,
+      seconds: 45,
       playingProgress: 0,
-      isReplacing: false
+      isReplacing: false,
+      dbUpdate: false
     };
 
-    this.handleFavorite = this.handleFavorite.bind(this);
     this.handleFinish = this.handleFinish.bind(this);
     this.handleLike = this.handleLike.bind(this);
     this.handlePlay = this.handlePlay.bind(this);
@@ -35,8 +33,8 @@ class SongCard extends React.Component {
     this.handleSkip = this.handleSkip.bind(this);
     this.parseSeek = this.parseSeek.bind(this);
     this.handleToggle = this.handleToggle.bind(this);
-    this.handleUnlock = this.handleUnlock.bind(this);
     this.handleInteraction = this.handleInteraction.bind(this);
+    this.handleSkipInteraction = this.handleSkipInteraction.bind(this);
   }
 
   countDown() {
@@ -47,22 +45,18 @@ class SongCard extends React.Component {
     }
   }
 
-  handleFavorite() {
-    this.setState(prevState => ({
-      isFavorite: !prevState.isFavorite
-    }));
-  }
-
   handleFinish() {
-    if (!this.state.isFinished) {
+    if (!this.state.isFinished && !this.state.dbUpdate) {
       this.setState({
         isFinished: true,
         isPlaying: false,
         isToggleOn: false,
-        cardSize: "minimized"
+        cardSize: "minimized",
+        dbUpdate: true
       });
 
       this.props.callbackList();
+      this.handleInteraction('api/interactions');
 
     } else {
       this.setState({
@@ -126,10 +120,12 @@ class SongCard extends React.Component {
   handleSkip() {
     this.setState(prevState => ({
       isPlaying: false,
-      isSkipped: true
+      isSkipped: true,
+      dbUpdate: true
     }));
 
     this.props.callbackList();
+    this.handleSkipInteraction('api/interactions');
   }
 
   handleToggle() {
@@ -147,12 +143,6 @@ class SongCard extends React.Component {
         cardSize: "maximized"
       }));
     }
-  }
-
-  handleUnlock() {
-    this.setState(prevState => ({
-      isUnlocked: !prevState.isUnlocked
-    }));
   }
 
   parseSeek(e) {
@@ -193,9 +183,40 @@ class SongCard extends React.Component {
                 "impression": 1,
                 "skip": this.state.isSkipped ? 1 : 0,
                 "info-seen": this.state.seconds === 0 ? 1 : 0,
-                "unlock": this.state.isUnlocked ? 1 : 0,
-                "like": this.state.isLiked ? 1 : 0,
-                "favorite": this.state.isFavorite ? 1 : 0
+                "like": this.state.isLiked ? 1 : 0
+              }
+            }
+          }
+        ),
+        headers: {
+          "Content-Type": "application/vnd.api+json"
+        },
+        credentials: "same-origin"
+      })
+      // how do I resolve a 204 response?
+      //.then(response => response.json())
+      //.then(json => resolve(json))
+      //.catch(error => reject(error))
+    //})
+  }
+
+  handleSkipInteraction(endpoint) {
+    //return new Promise((resolve, reject) => {
+      window.fetch(endpoint, {
+        method: "POST",
+        body: JSON.stringify(
+          {
+            "data":
+            {
+              "type"  : "interactions",
+              "attributes": {
+                "recommendation-id": this.props.recommendationId,
+                "user-id": this.props.fbUser,
+                "contribute": 0,
+                "impression": 1,
+                "skip": 1,
+                "info-seen": this.state.seconds === 0 ? 1 : 0,
+                "like": this.state.isLiked ? 1 : 0
               }
             }
           }
@@ -234,8 +255,10 @@ class SongCard extends React.Component {
   }
 
   componentWillUnmount() {
-    this.handleInteraction('api/interactions');
     clearInterval(this.timerDisplay);
+    if (!this.state.dbUpdate) {
+      this.handleInteraction('api/interactions');
+    }
   }
 
   render() {
@@ -251,7 +274,6 @@ class SongCard extends React.Component {
             attributes={this.props.song["attributes"]}
             state={this.state}
             handleToggle={this.handleToggle}
-            handleUnlock={this.handleUnlock}
           />
 
           <Meaning
@@ -262,7 +284,6 @@ class SongCard extends React.Component {
           <Rating
             attributes={this.props.song["attributes"]}
             state={this.state}
-            handleFavorite={this.handleFavorite}
             handleLike={this.handleLike}
           />
 
@@ -282,7 +303,6 @@ class SongCard extends React.Component {
             state={this.state}
             overallState={this.props.overallState}
             queryLength={this.props.queryLength}
-            handleFavorite={this.handleFavorite}
             handleLike={this.handleLike}
             handlePlay={this.handlePlay}
             handleSkip={this.handleSkip}

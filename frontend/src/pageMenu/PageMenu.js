@@ -9,7 +9,7 @@ class PageMenu extends React.Component {
   render() {
     if (this.props.fbUser === "") {
       return (
-        <Grid.Row color='purple' className='menu-header'>
+        <Grid.Row className='menu-header'>
           <Grid.Column mobile={16} tablet={15} computer={12} largeScreen={10} widescreen={8}>
 
             <Link to='/'>
@@ -37,7 +37,7 @@ class PageMenu extends React.Component {
   )
 } else {
   return (
-    <Grid.Row color='purple' className='menu-header'>
+    <Grid.Row className='menu-header'>
       <Grid.Column mobile={16} tablet={15} computer={12} largeScreen={10} widescreen={8}>
 
         <Link to='/'>
@@ -57,14 +57,6 @@ class PageMenu extends React.Component {
           />
         </div>
       </Link>
-
-      <Link to='/favorites'>
-      <div className='menu-button'>
-        <Icon link size='large'
-          name='bookmark outline'
-        />
-      </div>
-    </Link>
 
     <Modal size="mini"
       closeIcon
