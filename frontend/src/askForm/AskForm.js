@@ -47,8 +47,10 @@ class AskForm extends React.Component {
                     content="Fill up your moment!"
                   />
 
-                  <Header size="tiny" textAlign="justified"
-                    subheader="*Note: This prototype uses Youtube & Soundcloud links so you might encounter playing issues. If so, try (1) clicking the play/pause button twice or (2) skip the song." />
+                  <Header.Subheader size="tiny">
+                    Any enquiries or feedback?<br />
+                    Contact us at <a href="mailto:hello@thesoundmind.co">hello@thesoundmind.co</a>
+                  </Header.Subheader>
 
                 </Form>
               </Segment>
@@ -105,8 +107,10 @@ class AskForm extends React.Component {
                       </Button>
                       </Link>
 
-                      <Header size="tiny" textAlign="justified"
-                        subheader="*Note: This prototype uses Youtube & Soundcloud links so you might encounter playing issues. If so, try (1) clicking the play/pause button twice or (2) skip the song." />
+                      <Header.Subheader size="tiny">
+                        Any enquiries or feedback?<br />
+                        Contact us at <a href="mailto:hello@thesoundmind.co">hello@thesoundmind.co</a>
+                      </Header.Subheader>
 
                   </Form>
                 </Segment>
@@ -160,8 +164,10 @@ class AskForm extends React.Component {
                       </Button>
                       </Link>
 
-                      <Header size="tiny" textAlign="justified"
-                        subheader="*Note: This prototype uses Youtube & Soundcloud links so you might encounter playing issues. If so, try (1) clicking the play/pause button twice or (2) skip the song." />
+                      <Header.Subheader size="tiny">
+                        Any enquiries or feedback?<br />
+                        Contact us at <a href="mailto:hello@thesoundmind.co">hello@thesoundmind.co</a>
+                      </Header.Subheader>
 
                   </Form>
                 </Segment>

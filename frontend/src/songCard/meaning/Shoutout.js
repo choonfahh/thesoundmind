@@ -11,7 +11,7 @@ class Shoutout extends React.Component {
         <List.Icon size="small" name="quote left" />
 
         <List.Content>
-          <i>"{this.props.shoutout["content"]}"</i>
+          <i>{this.props.shoutout["content"]}</i>
         </List.Content>
 
       </List.Item>
