@@ -48,8 +48,8 @@ class AskForm extends React.Component {
                   />
 
                   <Header.Subheader size="tiny">
-                    Any enquiries or feedback?<br />
-                    Contact us at <a href="mailto:hello@thesoundmind.co">hello@thesoundmind.co</a>
+                    For any enquiries/feedback/troubleshooting,<br />
+                    contact us at <a href="mailto:hello@thesoundmind.co">hello@thesoundmind.co</a>
                   </Header.Subheader>
 
                 </Form>
@@ -110,8 +110,8 @@ class AskForm extends React.Component {
                       <p />
 
                       <Header.Subheader size="tiny">
-                        Any enquiries or feedback?<br />
-                        Contact us at <a href="mailto:hello@thesoundmind.co">hello@thesoundmind.co</a>
+                        For any enquiries/feedback/troubleshooting,<br />
+                        contact us at <a href="mailto:hello@thesoundmind.co">hello@thesoundmind.co</a>
                       </Header.Subheader>
 
                   </Form>
@@ -169,8 +169,8 @@ class AskForm extends React.Component {
                       <p />
 
                       <Header.Subheader size="tiny">
-                        Any enquiries or feedback?<br />
-                        Contact us at <a href="mailto:hello@thesoundmind.co">hello@thesoundmind.co</a>
+                        For any enquiries/feedback/troubleshooting,<br />
+                        contact us at <a href="mailto:hello@thesoundmind.co">hello@thesoundmind.co</a>
                       </Header.Subheader>
 
                   </Form>
