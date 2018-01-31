@@ -1,0 +1,19 @@
+.page-body {
+  height: calc(100% - 50px);
+}
+
+.button-text {
+  color: white
+}
+
+#adblock-body-alignment {
+  margin: auto;
+}
+
+#instruction-alignment{
+  margin-top: -25%;
+}
+
+#minimized {
+  display: none;
+}

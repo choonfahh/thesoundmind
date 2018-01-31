@@ -1,10 +1,12 @@
 /*global FB*/
 
 import React from 'react';
+import adBlocker from 'just-detect-adblock'
 import { Grid } from 'semantic-ui-react';
 import { BrowserRouter } from 'react-router-dom';
 import PageMenu from '../pageMenu/PageMenu';
 import MainBody from '../mainBody/MainBody';
+import AdblockInstruction from '../adblockInstruction/AdblockInstruction';
 import 'semantic-ui-css/semantic.min.css';
 import './app.css';
 
@@ -30,6 +32,7 @@ class App extends React.Component{
     this.handleFbLogin = this.handleFbLogin.bind(this);
     this.handleFbLogout = this.handleFbLogout.bind(this);
     this.handleUser = this.handleUser.bind(this);
+    this.reloadPage = this.reloadPage.bind(this);
 
   }
 
@@ -196,33 +199,58 @@ class App extends React.Component{
     }
   }
 
+  reloadPage() {
+    window.location.reload();
+  }
+
   render() {
-    return (
-      <BrowserRouter>
-        <Grid columns={1} padded centered relaxed
-          className='full-height'>
+    if(adBlocker.isDetected()) {
+      return (
+        <BrowserRouter>
+          <Grid columns={1} padded centered relaxed
+            className='full-height'>
 
-          <PageMenu
-            fbUser={this.state.fbUserId}
-            handleFbLogout={this.handleFbLogout}
-          />
+            <PageMenu
+              fbUser={this.state.fbUserId}
+              handleFbLogout={this.handleFbLogout}
+            />
 
-          <MainBody
-            location={this.state.location}
-            activity={this.state.activity}
-            mood={this.state.mood}
-            fbUser={this.state.fbUserId}
-            processQuery={this.processQuery}
-            handleQueryChange={this.handleQueryChange}
-            songs={this.state.queryResult}
-            handleReset={this.handleReset}
-            processLoginQuery={this.processLoginQuery}
-            handleFbLogin={this.handleFbLogin}
-          />
+            <MainBody
+              location={this.state.location}
+              activity={this.state.activity}
+              mood={this.state.mood}
+              fbUser={this.state.fbUserId}
+              processQuery={this.processQuery}
+              handleQueryChange={this.handleQueryChange}
+              songs={this.state.queryResult}
+              handleReset={this.handleReset}
+              processLoginQuery={this.processLoginQuery}
+              handleFbLogin={this.handleFbLogin}
+            />
 
-        </Grid>
-      </BrowserRouter>
-    );
+          </Grid>
+        </BrowserRouter>
+      );
+    } else {
+      return (
+        <BrowserRouter>
+          <Grid columns={1} padded centered relaxed
+            className='full-height'>
+
+            <PageMenu
+              fbUser={this.state.fbUserId}
+              handleFbLogout={this.handleFbLogout}
+            />
+
+            <AdblockInstruction
+              reloadPage={this.reloadPage}
+            />
+
+          </Grid>
+        </BrowserRouter>
+      );
+    }
+
   }
 }
 

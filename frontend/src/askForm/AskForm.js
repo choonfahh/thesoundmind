@@ -48,8 +48,7 @@ class AskForm extends React.Component {
                   />
 
                   <Header size="tiny" textAlign="justified"
-                    subheader="For the best mobile/desktop experience, we recommend using the Firefox browser with the AdBlock addon.
-                    *Note: This prototype uses Youtube & Soundcloud links so you might encounter playing issues. If so, try (1) clicking the play/pause button twice or (2) skip the song." />
+                    subheader="*Note: This prototype uses Youtube & Soundcloud links so you might encounter playing issues. If so, try (1) clicking the play/pause button twice or (2) skip the song." />
 
                 </Form>
               </Segment>
@@ -107,8 +106,7 @@ class AskForm extends React.Component {
                       </Link>
 
                       <Header size="tiny" textAlign="justified"
-                        subheader="For the best mobile/desktop experience, we recommend using the Firefox browser with the AdBlock addon.
-                        *Note: This prototype uses Youtube & Soundcloud links so you might encounter playing issues. If so, try (1) clicking the play/pause button twice or (2) skip the song." />
+                        subheader="*Note: This prototype uses Youtube & Soundcloud links so you might encounter playing issues. If so, try (1) clicking the play/pause button twice or (2) skip the song." />
 
                   </Form>
                 </Segment>
@@ -163,8 +161,7 @@ class AskForm extends React.Component {
                       </Link>
 
                       <Header size="tiny" textAlign="justified"
-                        subheader="For the best mobile/desktop experience, we recommend using the Firefox browser with the AdBlock addon.
-                        *Note: This prototype uses Youtube & Soundcloud links so you might encounter playing issues. If so, try (1) clicking the play/pause button twice or (2) skip the song." />
+                        subheader="*Note: This prototype uses Youtube & Soundcloud links so you might encounter playing issues. If so, try (1) clicking the play/pause button twice or (2) skip the song." />
 
                   </Form>
                 </Segment>
