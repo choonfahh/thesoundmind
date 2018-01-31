@@ -137,6 +137,8 @@ class App extends React.Component{
 
       } else {
         console.log('User cancelled login or did not fully authorize.');
+        this.handleReset();
+        window.history.back();
       }
     }.bind(this), {scope: 'public_profile,email'});
 
