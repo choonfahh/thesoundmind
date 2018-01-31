@@ -107,6 +107,8 @@ class AskForm extends React.Component {
                       </Button>
                       </Link>
 
+                      <p />
+
                       <Header.Subheader size="tiny">
                         Any enquiries or feedback?<br />
                         Contact us at <a href="mailto:hello@thesoundmind.co">hello@thesoundmind.co</a>
@@ -163,6 +165,8 @@ class AskForm extends React.Component {
 
                       </Button>
                       </Link>
+
+                      <p />
 
                       <Header.Subheader size="tiny">
                         Any enquiries or feedback?<br />
