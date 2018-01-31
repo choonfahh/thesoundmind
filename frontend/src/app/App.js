@@ -156,6 +156,8 @@ class App extends React.Component{
       console.log('User logged out');
 
     }.bind(this));
+    this.handleReset();
+    window.location.assign("https://www.thesoundmind.co");
   }
 
   processLoginQuery() {
