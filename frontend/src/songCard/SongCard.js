@@ -16,6 +16,8 @@ class SongCard extends React.Component {
       cardSize: "maximized",
       isFinished: false,
       isLiked: false,
+      isFavorite: false,
+      isUnlocked: false,
       isPlaying: false,
       isSeeking: false,
       isSkipped: false,
@@ -23,7 +25,8 @@ class SongCard extends React.Component {
       seconds: 45,
       playingProgress: 0,
       isReplacing: false,
-      dbUpdate: false
+      dbUpdate: false,
+      adWillingness: false
     };
 
     this.handleFinish = this.handleFinish.bind(this);
@@ -183,7 +186,10 @@ class SongCard extends React.Component {
                 "impression": 1,
                 "skip": this.state.isSkipped ? 1 : 0,
                 "info-seen": this.state.seconds === 0 ? 1 : 0,
-                "like": this.state.isLiked ? 1 : 0
+                "like": this.state.isLiked ? 1 : 0,
+                "favorite": this.state.isFavorite ? 1 : 0,
+                "unlock": this.state.isUnlocked ? 1 : 0,
+                "ad-willingness": this.state.adWillingness ? 1 : 0
               }
             }
           }
@@ -216,7 +222,10 @@ class SongCard extends React.Component {
                 "impression": 1,
                 "skip": 1,
                 "info-seen": this.state.seconds === 0 ? 1 : 0,
-                "like": this.state.isLiked ? 1 : 0
+                "like": this.state.isLiked ? 1 : 0,
+                "favorite": this.state.isFavorite ? 1 : 0,
+                "unlock": this.state.isUnlocked ? 1 : 0,
+                "ad-willingness": this.state.adWillingness ? 1 : 0
               }
             }
           }

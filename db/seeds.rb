@@ -7,6 +7,8 @@ user_seed.each do |row|
   t.fb_id = row['fb_id']
   t.name = row['name']
   t.email = row['email']
+  t.created_at = row['created_at']
+  t.updated_at = row['updated_at']
   t.save
 end
 
@@ -51,6 +53,11 @@ recommendation_seed.each do |row|
   t.skip = row['skip']
   t.info_seen = row['info_seen']
   t.like = row['like']
+  t.favorite = 0
+  t.unlock = 0
+  t.ad_willingness = 0
+  t.created_at = row['created_at']
+  t.updated_at = row['updated_at']
   t.save
 end
 
@@ -65,6 +72,11 @@ interaction_seed.each do |row|
   t.skip = row['skip']
   t.info_seen = row['info_seen']
   t.like = row['like']
+  t.favorite = 0
+  t.unlock = 0
+  t.ad_willingness = 0
+  t.created_at = row['created_at']
+  t.updated_at = row['updated_at']
   t.save
 end
 

@@ -8,6 +8,9 @@ class CreateRecommendations < ActiveRecord::Migration[5.1]
       t.integer :skip
       t.integer :info_seen
       t.integer :like
+      t.integer :favorite
+      t.integer :unlock
+      t.integer :ad_willingness
 
       t.timestamps
     end

@@ -44,6 +44,9 @@ ActiveRecord::Schema.define(version: 20170919024323) do
     t.integer "skip"
     t.integer "info_seen"
     t.integer "like"
+    t.integer "favorite"
+    t.integer "unlock"
+    t.integer "ad_willingness"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["recommendation_id"], name: "index_interactions_on_recommendation_id"
@@ -64,6 +67,9 @@ ActiveRecord::Schema.define(version: 20170919024323) do
     t.integer "skip"
     t.integer "info_seen"
     t.integer "like"
+    t.integer "favorite"
+    t.integer "unlock"
+    t.integer "ad_willingness"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["moment_id"], name: "index_recommendations_on_moment_id"

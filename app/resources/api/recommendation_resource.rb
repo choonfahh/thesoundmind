@@ -4,7 +4,8 @@ module API
                :song_title, :background_story, :playback_url,
                :artist_name, :profile_url,
                :contribute, :impression, :skip, :info_seen,
-               :like, :artist_content, :comments
+               :like, :favorite, :unlock, :ad_willingness,
+               :artist_content, :comments
 
     def comments
       @model.comments.pluck_to_hash(:id, :content)
