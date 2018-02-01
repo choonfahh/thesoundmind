@@ -53,9 +53,9 @@ recommendation_seed.each do |row|
   t.skip = row['skip']
   t.info_seen = row['info_seen']
   t.like = row['like']
-  t.favorite = 0
-  t.unlock = 0
-  t.ad_willingness = 0
+  t.favorite = row['favorite']
+  t.unlock = row['unlock']
+  t.ad_willingness = row['ad_willingness']
   t.created_at = row['created_at']
   t.updated_at = row['updated_at']
   t.save
@@ -72,9 +72,9 @@ interaction_seed.each do |row|
   t.skip = row['skip']
   t.info_seen = row['info_seen']
   t.like = row['like']
-  t.favorite = 0
-  t.unlock = 0
-  t.ad_willingness = 0
+  t.favorite = row['favorite']
+  t.unlock = row['unlock']
+  t.ad_willingness = row['ad_willingness']
   t.created_at = row['created_at']
   t.updated_at = row['updated_at']
   t.save
