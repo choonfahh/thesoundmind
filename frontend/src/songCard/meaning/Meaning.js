@@ -11,7 +11,10 @@ class Meaning extends React.Component {
       <Card.Content
         className={this.props.state.cardSize + " meaning"}>
 
-        <ArtistShoutout />
+        <ArtistShoutout
+        handleAdWillingness={this.props.handleAdWillingness}
+        state={this.props.state}
+      />
 
         <UserShoutoutList
           shoutouts={this.props.attributes["comments"]}

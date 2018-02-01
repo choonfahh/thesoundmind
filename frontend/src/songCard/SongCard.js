@@ -38,6 +38,7 @@ class SongCard extends React.Component {
     this.handleToggle = this.handleToggle.bind(this);
     this.handleInteraction = this.handleInteraction.bind(this);
     this.handleSkipInteraction = this.handleSkipInteraction.bind(this);
+    this.handleAdWillingness = this.handleAdWillingness.bind(this);
   }
 
   countDown() {
@@ -73,6 +74,12 @@ class SongCard extends React.Component {
   handleLike() {
     this.setState(prevState => ({
       isLiked: !prevState.isLiked
+    }));
+  }
+
+  handleAdWillingness() {
+    this.setState(prevState => ({
+      adWillingness: true
     }));
   }
 
@@ -288,6 +295,7 @@ class SongCard extends React.Component {
           <Meaning
             attributes={this.props.song["attributes"]}
             state={this.state}
+            handleAdWillingness={this.handleAdWillingness}
           />
 
           <Rating
