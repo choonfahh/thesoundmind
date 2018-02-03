@@ -169,8 +169,7 @@ class AskForm extends React.Component {
                       <p />
 
                       <Header.Subheader size="tiny">
-                        For enquiries, feedback or troubleshooting,<br />
-                        contact us at <a href="mailto:hello@thesoundmind.co">hello@thesoundmind.co</a>
+                        Don't worry, we are only using FB to identify you so that you've the best experience.
                       </Header.Subheader>
 
                   </Form>
