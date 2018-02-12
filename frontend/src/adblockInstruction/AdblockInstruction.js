@@ -2,7 +2,7 @@ import React from 'react';
 import { Desktop, Tablet, Mobile, desktopBrowser, mobileBrowser } from './DeviceBrowser.js';
 import BrowserDetection from 'react-browser-detection';
 import 'semantic-ui-css/semantic.min.css';
-import { Button, Grid, Icon, Segment } from 'semantic-ui-react';
+import { Button, Grid, Image, Icon, Segment } from 'semantic-ui-react';
 import './adblockInstruction.css';
 
 class AdblockInstruction extends React.Component {
@@ -14,7 +14,7 @@ class AdblockInstruction extends React.Component {
 
           <Segment basic textAlign="center" id='instruction-alignment'>
 
-            <Icon name='warning circle' size='massive' inverted color='red' />
+            <Image src='https://media.giphy.com/media/9Y5BbDSkSTiY8/giphy.gif' size='medium' centered /><p />
 
               <Desktop>
                   <BrowserDetection>{ desktopBrowser }</BrowserDetection>
