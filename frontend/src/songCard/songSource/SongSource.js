@@ -35,17 +35,16 @@ class SongSource extends React.Component {
 
   render() {
     return (
-      <Card.Content
-        className="minimized">
         <ReactPlayer
           ref={player => {this.player = player}}
           url={this.props.attributes["playback-url"]}
           playing={this.props.state.isPlaying}
           loop={true}
+          height={1}
+          width={1}
           onEnded={this.props.callbackFinish}
           onProgress={this.parseProgress}
         />
-      </Card.Content>
     );
   }
 }

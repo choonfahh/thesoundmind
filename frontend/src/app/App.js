@@ -248,7 +248,7 @@ class App extends React.Component{
 
             <AdblockInstruction
               reloadPage={this.reloadPage}
-            />
+              />
 
           </Grid>
         </BrowserRouter>
