@@ -6,8 +6,13 @@ import { Grid, Modal } from 'semantic-ui-react';
 import { BrowserRouter } from 'react-router-dom';
 import PageMenu from '../pageMenu/PageMenu';
 import MainBody from '../mainBody/MainBody';
+import Responsive from 'react-responsive';
 import 'semantic-ui-css/semantic.min.css';
 import './app.css';
+
+const Desktop = props => <Responsive {...props} minWidth={992} />;
+const Tablet = props => <Responsive {...props} minWidth={768} maxWidth={991} />;
+const Mobile = props => <Responsive {...props} maxWidth={767} />;
 
 class App extends React.Component{
   constructor (props) {
@@ -50,7 +55,7 @@ class App extends React.Component{
 
         }.bind(this));
 
-      } else if (fbResponse.status === 'not_authorized') {3
+      } else if (fbResponse.status === 'not_authorized') {
         console.log('not authorized');
         // the user is logged in to Facebook,
         // but has not authenticated your app
@@ -236,6 +241,8 @@ class App extends React.Component{
       );
     } else {
       return (
+        <span>
+        <Desktop>
         <BrowserRouter>
           <Grid columns={1} padded centered relaxed
             className='full-height'>
@@ -271,6 +278,84 @@ class App extends React.Component{
 
           </Grid>
         </BrowserRouter>
+        </Desktop>
+
+        <Tablet>
+        <BrowserRouter>
+          <Grid columns={1} padded centered relaxed
+            className='full-height'>
+
+            <PageMenu
+              fbUser={this.state.fbUserId}
+              handleFbLogout={this.handleFbLogout}
+            />
+
+            <Modal
+              defaultOpen={true}
+              size='mini'
+              dimmer='blurring'
+              header="Before you start..."
+              content="For the best listening experience, we recommend using Firefox/Opera with an AdBlocker. For Chrome/Safari mobile users due to browser limitations, double click on the play/pause button to start playing each music."
+              actions={[
+                { content: 'Got It', positive: true },
+              ]}
+            />
+
+            <MainBody
+              location={this.state.location}
+              activity={this.state.activity}
+              mood={this.state.mood}
+              fbUser={this.state.fbUserId}
+              processQuery={this.processQuery}
+              handleQueryChange={this.handleQueryChange}
+              songs={this.state.queryResult}
+              handleReset={this.handleReset}
+              processLoginQuery={this.processLoginQuery}
+              handleFbLogin={this.handleFbLogin}
+            />
+
+          </Grid>
+        </BrowserRouter>
+      </Tablet>
+
+      <Mobile>
+      <BrowserRouter>
+        <Grid columns={1} padded centered relaxed
+          className='full-height'>
+
+          <PageMenu
+            fbUser={this.state.fbUserId}
+            handleFbLogout={this.handleFbLogout}
+          />
+
+          <Modal
+            defaultOpen={true}
+            size='mini'
+            dimmer='blurring'
+            header="Before you start..."
+            content="For the best listening experience, we recommend using Firefox/Opera with an AdBlocker. For Chrome/Safari mobile users due to browser limitations, double click on the play/pause button to start playing each music."
+            actions={[
+              { content: 'Got It', positive: true },
+            ]}
+          />
+
+          <MainBody
+            location={this.state.location}
+            activity={this.state.activity}
+            mood={this.state.mood}
+            fbUser={this.state.fbUserId}
+            processQuery={this.processQuery}
+            handleQueryChange={this.handleQueryChange}
+            songs={this.state.queryResult}
+            handleReset={this.handleReset}
+            processLoginQuery={this.processLoginQuery}
+            handleFbLogin={this.handleFbLogin}
+          />
+
+        </Grid>
+      </BrowserRouter>
+    </Mobile>
+    </span>
       );
     }
 
