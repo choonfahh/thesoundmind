@@ -2,11 +2,10 @@
 
 import React from 'react';
 import adBlocker from 'just-detect-adblock'
-import { Grid } from 'semantic-ui-react';
+import { Grid, Modal } from 'semantic-ui-react';
 import { BrowserRouter } from 'react-router-dom';
 import PageMenu from '../pageMenu/PageMenu';
 import MainBody from '../mainBody/MainBody';
-import AdblockInstruction from '../adblockInstruction/AdblockInstruction';
 import 'semantic-ui-css/semantic.min.css';
 import './app.css';
 
@@ -51,7 +50,7 @@ class App extends React.Component{
 
         }.bind(this));
 
-      } else if (fbResponse.status === 'not_authorized') {
+      } else if (fbResponse.status === 'not_authorized') {3
         console.log('not authorized');
         // the user is logged in to Facebook,
         // but has not authenticated your app
@@ -246,9 +245,29 @@ class App extends React.Component{
               handleFbLogout={this.handleFbLogout}
             />
 
-            <AdblockInstruction
-              reloadPage={this.reloadPage}
-              />
+            <Modal
+              defaultOpen={true}
+              size='mini'
+              dimmer='blurring'
+              header="Before you start..."
+              content="For the best listening experience, we recommend activating your AdBlocker. If you're on Safari, ensure the website can autoplay media (Preferences > Websites > Auto-Play)."
+              actions={[
+                { content: 'Got It', positive: true },
+              ]}
+            />
+
+            <MainBody
+              location={this.state.location}
+              activity={this.state.activity}
+              mood={this.state.mood}
+              fbUser={this.state.fbUserId}
+              processQuery={this.processQuery}
+              handleQueryChange={this.handleQueryChange}
+              songs={this.state.queryResult}
+              handleReset={this.handleReset}
+              processLoginQuery={this.processLoginQuery}
+              handleFbLogin={this.handleFbLogin}
+            />
 
           </Grid>
         </BrowserRouter>
