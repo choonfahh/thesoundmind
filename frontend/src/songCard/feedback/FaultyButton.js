@@ -6,15 +6,15 @@ class FaultyButton extends React.Component {
   render() {
     if (this.props.state.isFaulty === true) {
       return (
-        <Button>
-          <h5>No music playing</h5>
+        <Button icon>
+          <h5>I don't hear any music playing</h5>
         </Button>
       );
     } else {
       return (
-        <Button
+        <Button icon
           onClick={this.props.handleFaulty}>
-          <h5>No music playing</h5>
+          <h5>I don't hear any music playing</h5>
         </Button>
       );
     }
