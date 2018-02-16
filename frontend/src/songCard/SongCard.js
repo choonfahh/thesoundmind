@@ -26,7 +26,9 @@ class SongCard extends React.Component {
       playingProgress: 0,
       isReplacing: false,
       dbUpdate: false,
-      adWillingness: false
+      adWillingness: false,
+      isFaulty: false,
+      faultyOrSkipped: false
     };
 
     this.handleFinish = this.handleFinish.bind(this);
@@ -39,6 +41,8 @@ class SongCard extends React.Component {
     this.handleInteraction = this.handleInteraction.bind(this);
     this.handleSkipInteraction = this.handleSkipInteraction.bind(this);
     this.handleAdWillingness = this.handleAdWillingness.bind(this);
+    this.handleFaulty = this.handleFaulty.bind(this);
+    this.handleFaultyInteraction = this.handleFaultyInteraction.bind(this);
   }
 
   countDown() {
@@ -131,11 +135,24 @@ class SongCard extends React.Component {
     this.setState(prevState => ({
       isPlaying: false,
       isSkipped: true,
-      dbUpdate: true
+      dbUpdate: true,
+      faultyOrSkipped: true
     }));
 
     this.props.callbackList();
     this.handleSkipInteraction('api/interactions');
+  }
+
+  handleFaulty() {
+    this.setState(prevState => ({
+      isPlaying: false,
+      isFaulty: true,
+      dbUpdate: true,
+      faultyOrSkipped: true
+    }));
+
+    this.props.callbackList();
+    this.handleFaultyInteraction('api/interactions');
   }
 
   handleToggle() {
@@ -196,7 +213,8 @@ class SongCard extends React.Component {
                 "like": this.state.isLiked ? 1 : 0,
                 "favorite": this.state.isFavorite ? 1 : 0,
                 "unlock": this.state.isUnlocked ? 1 : 0,
-                "ad-willingness": this.state.adWillingness ? 1 : 0
+                "ad-willingness": this.state.adWillingness ? 1 : 0,
+                "faulty": 0
               }
             }
           }
@@ -232,7 +250,45 @@ class SongCard extends React.Component {
                 "like": this.state.isLiked ? 1 : 0,
                 "favorite": this.state.isFavorite ? 1 : 0,
                 "unlock": this.state.isUnlocked ? 1 : 0,
-                "ad-willingness": this.state.adWillingness ? 1 : 0
+                "ad-willingness": this.state.adWillingness ? 1 : 0,
+                "faulty": 0
+              }
+            }
+          }
+        ),
+        headers: {
+          "Content-Type": "application/vnd.api+json"
+        },
+        credentials: "same-origin"
+      })
+      // how do I resolve a 204 response?
+      //.then(response => response.json())
+      //.then(json => resolve(json))
+      //.catch(error => reject(error))
+    //})
+  }
+
+  handleFaultyInteraction(endpoint) {
+    //return new Promise((resolve, reject) => {
+      window.fetch(endpoint, {
+        method: "POST",
+        body: JSON.stringify(
+          {
+            "data":
+            {
+              "type"  : "interactions",
+              "attributes": {
+                "recommendation-id": this.props.recommendationId,
+                "user-id": this.props.fbUser,
+                "contribute": 0,
+                "impression": 1,
+                "skip": 0,
+                "info-seen": this.state.seconds === 0 ? 1 : 0,
+                "like": this.state.isLiked ? 1 : 0,
+                "favorite": this.state.isFavorite ? 1 : 0,
+                "unlock": this.state.isUnlocked ? 1 : 0,
+                "ad-willingness": this.state.adWillingness ? 1 : 0,
+                "faulty": 1
               }
             }
           }
@@ -280,7 +336,7 @@ class SongCard extends React.Component {
   render() {
     return (
       <Transition
-        visible={!this.state.isSkipped}
+        visible={!this.state.faultyOrSkipped}
         animation='fly left' duration={1000}>
 
         <Card fluid raised
@@ -323,6 +379,7 @@ class SongCard extends React.Component {
             handleLike={this.handleLike}
             handlePlay={this.handlePlay}
             handleSkip={this.handleSkip}
+            handleFaulty={this.handleFaulty}
             fbUser={this.props.fbUser}
             handleFbLogin={this.props.handleFbLogin}
           />

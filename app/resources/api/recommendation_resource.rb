@@ -4,7 +4,7 @@ module API
                :song_title, :background_story, :playback_url,
                :artist_name, :profile_url,
                :contribute, :impression, :skip, :info_seen,
-               :like, :favorite, :unlock, :ad_willingness,
+               :like, :favorite, :unlock, :ad_willingness, :faulty,
                :artist_content, :comments
 
     def comments

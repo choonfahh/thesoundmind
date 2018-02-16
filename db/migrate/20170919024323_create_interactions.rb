@@ -11,6 +11,7 @@ class CreateInteractions < ActiveRecord::Migration[5.1]
       t.integer :favorite
       t.integer :unlock
       t.integer :ad_willingness
+      t.integer :faulty
 
       t.timestamps
     end

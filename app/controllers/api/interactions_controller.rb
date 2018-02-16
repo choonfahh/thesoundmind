@@ -18,6 +18,7 @@ module API
         i.favorite = params["data"]["attributes"]["favorite"]
         i.unlock = params["data"]["attributes"]["unlock"]
         i.ad_willingness = params["data"]["attributes"]["ad-willingness"]
+        i.faulty = params["data"]["attributes"]["faulty"]
         i.save
       end
 
@@ -30,6 +31,7 @@ module API
       @recommendation.favorite += params["data"]["attributes"]["favorite"]
       @recommendation.unlock += params["data"]["attributes"]["unlock"]
       @recommendation.ad_willingness += params["data"]["attributes"]["ad-willingness"]
+      @recommendation.faulty += params["data"]["attributes"]["faulty"]
       @recommendation.save
     end
 

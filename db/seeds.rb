@@ -56,6 +56,7 @@ recommendation_seed.each do |row|
   t.favorite = row['favorite']
   t.unlock = row['unlock']
   t.ad_willingness = row['ad_willingness']
+  t.faulty = 0
   t.created_at = row['created_at']
   t.updated_at = row['updated_at']
   t.save
@@ -75,6 +76,7 @@ interaction_seed.each do |row|
   t.favorite = row['favorite']
   t.unlock = row['unlock']
   t.ad_willingness = row['ad_willingness']
+  t.faulty = 0
   t.created_at = row['created_at']
   t.updated_at = row['updated_at']
   t.save
