@@ -67,7 +67,6 @@ class RecommendationList extends React.Component {
   }
 
   render() {
-    if (this.props.fbUser !== "") {
     let rows = [];
 
     for (let songCount = 0; songCount <= this.state.songsListened; songCount++) {
@@ -97,19 +96,7 @@ class RecommendationList extends React.Component {
       </Grid.Column>
     </Grid.Row>
     );
-  } else {
-    return (
-      <Grid.Row centered className='page-body'>
-        <Grid.Column mobile={16} tablet={12} computer={9} largeScreen={7} widescreen={5} id='loading-alignment'>
-          <Segment basic textAlign="center">
-          <Icon size='massive' name='spinner' loading />
-          <Header size='large' content='Logging In...' />
-        </Segment>
-      </Grid.Column>
-    </Grid.Row>
-    );
   }
-}
 }
 
 export default RecommendationList;

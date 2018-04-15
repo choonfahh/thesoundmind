@@ -47,11 +47,6 @@ class AskForm extends React.Component {
                     content="Fill up your moment!"
                   />
 
-                  <Header.Subheader size="tiny">
-                    For enquiries, feedback or troubleshooting,<br />
-                    contact us at <a href="mailto:hello@thesoundmind.co">hello@thesoundmind.co</a>
-                  </Header.Subheader>
-
                 </Form>
               </Segment>
 
@@ -59,8 +54,6 @@ class AskForm extends React.Component {
           </Grid.Row>
         );
       } else {
-
-        if (this.props.fbUser !== "") {
           return(
             <Grid.Row centered className='page-body'>
               <Grid.Column mobile={16} tablet={11} computer={9} largeScreen={7} widescreen={5} id='ask-body-alignment'>
@@ -107,71 +100,6 @@ class AskForm extends React.Component {
                       </Button>
                       </Link>
 
-                      <p />
-
-                      <Header.Subheader size="tiny">
-                        For enquiries, feedback or troubleshooting,<br />
-                        contact us at <a href="mailto:hello@thesoundmind.co">hello@thesoundmind.co</a>
-                      </Header.Subheader>
-
-                  </Form>
-                </Segment>
-
-              </Grid.Column>
-            </Grid.Row>
-          )
-        } else {
-          return (
-            <Grid.Row centered className='page-body'>
-              <Grid.Column mobile={16} tablet={11} computer={9} largeScreen={7} widescreen={5} id='ask-body-alignment'>
-
-                <Segment basic textAlign="center" id='ask-form-alignment'>
-
-                  <Header size="large"
-                    content="What's your moment?"
-                    subheader="In return, you'll receive a playlist of 10 songs right now." />
-
-                    <Form id='input-form'>
-
-                      <Form.Select fluid required
-                        name="location"
-                        options={location}
-                        placeholder='Location'
-                        onChange={this.props.handleQueryChange}
-                      />
-                      <Form.Select fluid required
-                        name="activity"
-                        options={activity}
-                        placeholder='Type of Activity'
-                        onChange={this.props.handleQueryChange}
-                      />
-                      <Form.Select fluid required
-                        name="mood"
-                        options={mood}
-                        placeholder='Mood'
-                        onChange={this.props.handleQueryChange}
-                      />
-
-                      <Link to='/omakase'>
-                      <Button size="large" color='facebook' animated onClick={this.props.processLoginQuery}>
-                        <Button.Content visible>
-                        <Icon name='facebook' />
-                        Continue with Facebook
-                        </Button.Content>
-
-                        <Button.Content hidden>
-                          <Icon name='play' />
-                        </Button.Content>
-
-                      </Button>
-                      </Link>
-
-                      <p />
-
-                      <Header.Subheader size="tiny">
-                        Don't worry, we are only using FB to identify you so that you've the best experience.
-                      </Header.Subheader>
-
                   </Form>
                 </Segment>
 
@@ -181,6 +109,5 @@ class AskForm extends React.Component {
         }
       }
     }
-  }
 
 export default AskForm;
