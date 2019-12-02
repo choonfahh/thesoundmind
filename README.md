@@ -6,4 +6,4 @@ This was my first brainchild project and represented my first MVP - Ruby on Rail
 
 Thanks to all who have contributed to this along the way.
 
-[To try out the MVP](https://thesoundmind.herokuapp.com)
+[To read the case study](https://fah.fyi/thesoundmind)
